@@ -250,7 +250,6 @@
             border-color: #11998e;
         }
 
-        /* 圖書查詢特定樣式 */
         .search-layout {
             display: grid;
             grid-template-columns: 1fr 320px;
@@ -437,7 +436,6 @@
             display: block;
         }
 
-        /* 圖書查詢結果樣式 */
         .library-summary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -576,7 +574,6 @@
             color: #c62828;
         }
 
-        /* Manual Select 樣式 */
         .manual-list {
             flex: 1;
             overflow-y: auto;
@@ -635,7 +632,6 @@
             margin-bottom: 10px;
         }
 
-        /* 手機端 Manual Select 懸浮按鈕 */
         .mobile-manual-float-btn {
             display: none;
             position: fixed;
@@ -666,7 +662,6 @@
             transform: rotate(45deg);
         }
 
-        /* 手機端 Manual Select 彈窗 */
         .mobile-manual-modal {
             display: none;
             position: fixed;
@@ -751,7 +746,6 @@
             margin-bottom: 10px;
         }
 
-        /* 裝箱功能樣式 */
         .packing-layout {
             display: flex;
             gap: 20px;
@@ -952,7 +946,6 @@
             flex-shrink: 0;
         }
 
-        /* 自定義分類樣式 */
         .custom-category-section {
             margin-top: 20px;
             border-top: 2px dashed #ddd;
@@ -968,66 +961,48 @@
             gap: 6px;
         }
 
-        .custom-category-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+        /* 新增：統計表格樣式 */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 13px;
         }
 
-        .custom-category-item {
+        .stats-table th {
             background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 10px;
-            transition: all 0.3s;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border: 1px solid #dee2e6;
         }
 
-        .custom-category-item:hover {
-            border-color: #667eea;
-            background: #f0f4ff;
+        .stats-table td {
+            padding: 8px;
+            border: 1px solid #dee2e6;
         }
 
-        .spare-mode .custom-category-item:hover {
-            border-color: #11998e;
-            background: #e8f5e9;
+        .stats-table tr:hover {
+            background: #f8f9fa;
         }
 
-        .custom-category-header {
+        .stats-col-config {
             display: flex;
-            align-items: center;
             gap: 5px;
-            margin-bottom: 8px;
+            align-items: center;
         }
 
-        .custom-category-header select {
-            flex: 1;
-            padding: 4px 8px;
+        .stats-col-config select,
+        .stats-col-config input {
+            padding: 4px 6px;
             font-size: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #ced4da;
             border-radius: 4px;
-            min-width: 50px;
+            width: auto;
+            min-width: 80px;
         }
 
-        .custom-category-header input {
-            flex: 2;
-            padding: 4px 8px;
-            font-size: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .custom-category-count {
-            font-size: 18px;
-            font-weight: 700;
-            color: #667eea;
-            text-align: right;
-        }
-
-        .spare-mode .custom-category-count {
-            color: #11998e;
-        }
-
-        /* Excel 風格資料表格 */
         .excel-table-container {
             overflow-x: auto;
             border-radius: 8px;
@@ -1078,7 +1053,6 @@
             background: #e3f2fd;
         }
 
-        /* 新增資料高亮 */
         .excel-table tr.new-row {
             background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%) !important;
             animation: highlightNew 2s ease;
@@ -1126,7 +1100,6 @@
             font-size: 12px;
         }
 
-        /* 分頁控制樣式 */
         .pagination-controls {
             display: flex;
             justify-content: center;
@@ -1261,7 +1234,6 @@
             margin-top: 10px;
         }
 
-        /* Modal 樣式 */
         .modal-overlay {
             position: fixed;
             top: 0; 
@@ -1405,7 +1377,6 @@
             display: none;
         }
 
-        /* Loading 與空狀態 */
         .loading {
             text-align: center;
             padding: 40px;
@@ -1457,7 +1428,6 @@
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
         }
 
-        /* 日誌容器 */
         .log-container {
             margin-top: 20px;
             background: white;
@@ -1520,7 +1490,6 @@
             font-size: 14px;
         }
 
-        /* 批量更新特定樣式 */
         .batch-status-panel {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border: 2px solid #dee2e6;
@@ -1671,7 +1640,6 @@
             color: #721c24;
         }
 
-        /* Toast 提示 */
         .temp-toast {
             position: fixed;
             top: 80px;
@@ -1690,7 +1658,6 @@
             to { transform: translateX(-50%) translateY(0); opacity: 1; }
         }
 
-        /* 響應式設計 */
         @media (max-width: 968px) {
             .main-wrapper {
                 grid-template-columns: 1fr;
@@ -1746,7 +1713,6 @@
                 display: none;
             }
 
-            /* 手機端顯示懸浮按鈕 */
             .mobile-manual-float-btn {
                 display: flex;
             }
@@ -1804,7 +1770,6 @@
                 padding: 15px;
             }
 
-            /* Excel 表格響應式 */
             .excel-table th, .excel-table td {
                 padding: 8px;
                 font-size: 13px;
@@ -1815,9 +1780,17 @@
                 gap: 10px;
             }
 
-            /* 自定義分類響應式 */
             .custom-category-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-table {
+                font-size: 12px;
+            }
+
+            .stats-col-config {
+                flex-direction: column;
+                gap: 2px;
             }
         }
 
@@ -1878,7 +1851,6 @@
             background: #a8a8a8;
         }
     </style>
-    <!-- 引入 SheetJS 函式庫 -->
     <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
     <base target="_blank">
 </head>
@@ -1891,7 +1863,6 @@
 
         <div class="main-wrapper">
             <div class="left-toolbar">
-                <!-- 圖書查詢功能 -->
                 <button class="tool-btn active" data-target="search" onclick="switchPanel('search')" title="圖書查詢">
                     <span style="font-size: 24px;">🔍</span>
                     <span class="label">圖書查詢</span>
@@ -1919,7 +1890,6 @@
 
                 <div class="toolbar-divider"></div>
 
-                <!-- 裝箱功能 -->
                 <button class="tool-btn packbox-btn" onclick="switchPackingSheet('PACKBOX')" title="PACKBOX主箱">
                     <span style="font-size: 28px;">📦</span>
                     <span class="label">PACKBOX</span>
@@ -1935,7 +1905,6 @@
 
             <div class="content-area">
 
-                <!-- 1. 圖書查詢 -->
                 <div id="panel-search" class="function-block active">
                     <div class="search-layout">
                         <div class="search-main">
@@ -1994,7 +1963,6 @@
                     </div>
                 </div>
 
-                <!-- 2. 查詢位置 -->
                 <div id="panel-location" class="function-block">
                     <div class="panel-content">
                         <div class="block-title">📍 查詢位置</div>
@@ -2026,7 +1994,6 @@
                     </div>
                 </div>
 
-                <!-- 3. 顯示設定 -->
                 <div id="panel-display" class="function-block">
                     <div class="panel-content">
                         <div class="block-title">⚙️ 顯示設定</div>
@@ -2041,7 +2008,6 @@
                     </div>
                 </div>
 
-                <!-- 4. 單一位置更新 -->
                 <div id="panel-single" class="function-block">
                     <div class="panel-content">
                         <div class="block-title">📝 單一位置更新</div>
@@ -2064,7 +2030,6 @@
                     </div>
                 </div>
 
-                <!-- 5. 批量位置更新 -->
                 <div id="panel-batch" class="function-block">
                     <div class="panel-content">
                         <div class="block-title">📋 批量位置更新</div>
@@ -2126,7 +2091,6 @@
                     </div>
                 </div>
 
-                <!-- 6. 裝箱功能 (PACKBOX) -->
                 <div id="panel-packing" class="function-block">
                     <div class="panel-content" id="packingPanelContent">
                         <div class="block-title" id="packingBlockTitle">
@@ -2182,23 +2146,72 @@
                                     <div class="summary-grid">
                                         <div class="summary-card">
                                             <h3>📊 各區數量統計</h3>
-                                            <div id="zoneSummaryList">
-                                                <div class="summary-item">
-                                                    <span class="summary-label">載入中...</span>
-                                                    <span class="summary-value">-</span>
-                                                </div>
+                                            
+                                            <!-- 統計表格：C-F欄可配置 -->
+                                            <div style="overflow-x: auto;">
+                                                <table class="stats-table" id="statsTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>區域名稱</th>
+                                                            <th>數量</th>
+                                                            <th id="th-c">
+                                                                <div class="stats-col-config">
+                                                                    <select id="colC-select" onchange="updateCustomCategory(0, 'column', this.value)">
+                                                                        <option value="B">B欄</option>
+                                                                        <option value="C" selected>C欄</option>
+                                                                        <option value="D">D欄</option>
+                                                                        <option value="E">E欄</option>
+                                                                    </select>
+                                                                    <input type="text" id="colC-value" placeholder="篩選值" onchange="updateCustomCategory(0, 'value', this.value)" style="width: 100px;">
+                                                                </div>
+                                                            </th>
+                                                            <th id="th-d">
+                                                                <div class="stats-col-config">
+                                                                    <select id="colD-select" onchange="updateCustomCategory(1, 'column', this.value)">
+                                                                        <option value="B">B欄</option>
+                                                                        <option value="C">C欄</option>
+                                                                        <option value="D" selected>D欄</option>
+                                                                        <option value="E">E欄</option>
+                                                                    </select>
+                                                                    <input type="text" id="colD-value" placeholder="篩選值" onchange="updateCustomCategory(1, 'value', this.value)" style="width: 100px;">
+                                                                </div>
+                                                            </th>
+                                                            <th id="th-e">
+                                                                <div class="stats-col-config">
+                                                                    <select id="colE-select" onchange="updateCustomCategory(2, 'column', this.value)">
+                                                                        <option value="B">B欄</option>
+                                                                        <option value="C">C欄</option>
+                                                                        <option value="D">D欄</option>
+                                                                        <option value="E" selected>E欄</option>
+                                                                    </select>
+                                                                    <input type="text" id="colE-value" placeholder="篩選值" onchange="updateCustomCategory(2, 'value', this.value)" style="width: 100px;">
+                                                                </div>
+                                                            </th>
+                                                            <th id="th-f">
+                                                                <div class="stats-col-config">
+                                                                    <select id="colF-select" onchange="updateCustomCategory(3, 'column', this.value)">
+                                                                        <option value="B">B欄</option>
+                                                                        <option value="C">C欄</option>
+                                                                        <option value="D">D欄</option>
+                                                                        <option value="E">E欄</option>
+                                                                        <option value="F" selected>F欄</option>
+                                                                    </select>
+                                                                    <input type="text" id="colF-value" placeholder="篩選值" onchange="updateCustomCategory(3, 'value', this.value)" style="width: 100px;">
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="statsTableBody">
+                                                        <tr>
+                                                            <td colspan="6" style="text-align: center; padding: 20px; color: #999;">載入中...</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                             
-                                            <!-- 自定義分統計區域 -->
-                                            <div class="custom-category-section">
-                                                <h4>📋 自定義分類統計</h4>
-                                                <div id="customCategoryList" class="custom-category-grid">
-                                                    <!-- 動態生成8個自定義分類 -->
-                                                </div>
-                                                <button class="btn-sm btn-secondary" onclick="saveCustomCategories()" style="margin-top: 10px; width: 100%;">
-                                                    💾 儲存分類設定
-                                                </button>
-                                            </div>
+                                            <button class="btn-sm btn-secondary" onclick="saveCustomCategories()" style="margin-top: 10px; width: 100%;">
+                                                💾 儲存統計設定
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -2222,7 +2235,6 @@
                                         <button class="btn-primary btn-sm" onclick="searchPackingData()">🔍 搜尋</button>
                                     </div>
 
-                                    <!-- Excel 風格表格容器 -->
                                     <div class="excel-table-container" id="excelTableContainer">
                                         <table class="excel-table" id="excelDataTable">
                                             <thead>
@@ -2237,12 +2249,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="excelTableBody">
-                                                <!-- 動態生成 -->
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    <!-- 分頁控制 -->
                                     <div class="pagination-controls" id="paginationControls" style="display: none;">
                                         <button class="pagination-btn" id="prevPageBtn" onclick="changePage(-1)" disabled>
                                             ← 上一頁
@@ -2264,12 +2274,10 @@
         </div>
     </div>
 
-    <!-- 手機端 Manual Select 懸浮按鈕 -->
     <button class="mobile-manual-float-btn" id="mobileManualBtn" onclick="toggleMobileManualModal()" title="Manual Select">
         📋
     </button>
 
-    <!-- 手機端 Manual Select 彈窗 -->
     <div class="mobile-manual-modal" id="mobileManualModal" onclick="closeMobileManualModal(event)">
         <div class="mobile-manual-content" onclick="event.stopPropagation()">
             <div class="mobile-manual-header">
@@ -2297,7 +2305,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <h3 id="modalTitle">標題</h3>
@@ -2309,7 +2316,6 @@
         </div>
     </div>
 
-    <!-- Upload Modal -->
     <div class="modal-overlay upload-modal-overlay" id="uploadModalOverlay" onclick="closeUploadModal(event)">
         <div class="modal" onclick="event.stopPropagation()" style="text-align: center;">
             <h3 id="uploadModalTitle" style="text-align: left;">📤 上傳 Excel 檔案</h3>
@@ -2347,11 +2353,9 @@
     </div>
 
     <script>
-        //================ API 設定 =================
         const LIBRARY_API_URL = 'https://script.google.com/macros/s/AKfycbzvDHZorM13RtLziS7Bdqu1FDJOOisCHF45NpkfdsfU476SoAAE_PRnhD9ZWBa4XqKh/exec';
         const PACKING_API_URL = 'https://script.google.com/macros/s/AKfycbzvDHZorM13RtLziS7Bdqu1FDJOOisCHF45NpkfdsfU476SoAAE_PRnhD9ZWBa4XqKh/exec';
 
-        //================ 狀態變數 =================
         let currentPanel = 'search';
         let currentPackingSheet = 'PACKBOX';
         let currentZone = 'all';
@@ -2370,35 +2374,28 @@
         let currentUploadController = null;
         let isProcessingQuickAdd = false;
         
-        // 分頁相關變數
         let currentPage = 1;
         let totalPages = 1;
         let totalRecords = 0;
         let columnHeaders = ['A', 'B', 'C', 'D', 'E', 'F'];
         
-        // 新增：自定義分類設定（預設8個）
+        // 自定義分類設定：對應 C, D, E, F 四欄
         let customCategories = [
-            { id: 1, column: 'B', value: '中文', label: '中文書', enabled: true },
-            { id: 2, column: 'B', value: 'English', label: '英文書', enabled: true },
-            { id: 3, column: 'C', value: 'Non-Last Copy', label: 'Non-Last Copy', enabled: true },
-            { id: 4, column: 'C', value: 'Last Copy', label: 'Last Copy', enabled: true },
-            { id: 5, column: 'D', value: '', label: '自定義5', enabled: false },
-            { id: 6, column: 'D', value: '', label: '自定義6', enabled: false },
-            { id: 7, column: 'E', value: '', label: '自定義7', enabled: false },
-            { id: 8, column: 'E', value: '', label: '自定義8', enabled: false }
+            { id: 1, column: 'C', value: '', label: 'C欄統計', enabled: false },
+            { id: 2, column: 'D', value: '', label: 'D欄統計', enabled: false },
+            { id: 3, column: 'E', value: '', label: 'E欄統計', enabled: false },
+            { id: 4, column: 'F', value: '', label: 'F欄統計', enabled: false }
         ];
         
-        // 新增：最近加入的資料Key（用於高亮顯示）
         let recentlyAddedKeys = [];
         
         const MAX_LOGS = 50;
         const UPLOAD_BATCH_SIZE = 50;
-        const PAGE_SIZE = 200; // 每頁筆數
+        const PAGE_SIZE = 200;
 
-        //================ 初始化 =================
         document.addEventListener('DOMContentLoaded', function() {
             loadManualSelect();
-            loadCustomCategories(); // 載入自定義分類設定
+            loadCustomCategories();
 
             document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') searchBook();
@@ -2428,7 +2425,6 @@
             setTimeout(preloadAllData, 1000);
         });
 
-        //================ API 呼叫函數（含重試機制） =================
         async function libraryApiCall(action, params = {}, timeout = 60000) {
             return apiCallWithRetry(LIBRARY_API_URL, action, params, timeout, 3);
         }
@@ -2437,7 +2433,6 @@
             return apiCallWithRetry(PACKING_API_URL, action, params, timeout, 3);
         }
         
-        // 新增：通用重試機制
         async function apiCallWithRetry(baseUrl, action, params, timeout, maxRetries) {
             let lastError;
             
@@ -2450,7 +2445,6 @@
                     console.warn(`API呼叫失敗 (嘗試 ${attempt}/${maxRetries}): ${error.message}`);
                     
                     if (attempt < maxRetries) {
-                        // 指數退避延遲
                         const delay = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
                         await new Promise(resolve => setTimeout(resolve, delay));
                     }
@@ -2499,7 +2493,6 @@
             });
         }
 
-        //================ 面板切換 =================
         function switchPanel(panelName) {
             stopStatusMonitoring();
 
@@ -2530,8 +2523,8 @@
         function switchPackingSheet(sheetName) {
             currentPackingSheet = sheetName;
             currentZone = 'all';
-            currentPage = 1; // 重置頁碼
-            recentlyAddedKeys = []; // 清空最近加入列表
+            currentPage = 1;
+            recentlyAddedKeys = [];
 
             document.querySelectorAll('.function-block').forEach(block => {
                 block.classList.remove('active');
@@ -2549,7 +2542,6 @@
 
             updatePanelStyle();
             
-            // 先載入標題，再載入資料
             loadHeaders().then(() => {
                 loadPackingData();
             });
@@ -2592,13 +2584,11 @@
             }
         }
 
-        //================ 自定義分類功能 =================
         function loadCustomCategories() {
             const saved = localStorage.getItem('customCategories_' + currentPackingSheet);
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
-                    // 合併儲存的設定，保留預設結構
                     parsed.forEach((cat, index) => {
                         if (customCategories[index]) {
                             customCategories[index] = { ...customCategories[index], ...cat };
@@ -2608,185 +2598,1174 @@
                     console.error('載入自定義分類失敗:', e);
                 }
             }
-            renderCustomCategories();
+            
+            // 設定輸入框的值
+            customCategories.forEach((cat, index) => {
+                const select = document.querySelector(`#col${String.fromCharCode(67 + index)}-select`);
+                const input = document.querySelector(`#col${String.fromCharCode(67 + index)}-value`);
+                if (select) select.value = cat.column;
+                if (input) input.value = cat.value || '';
+            });
         }
         
         function saveCustomCategories() {
             localStorage.setItem('customCategories_' + currentPackingSheet, JSON.stringify(customCategories));
-            showToast('✅ 分類設定已儲存', 'success');
-            loadPackingSummary(); // 重新計算統計
-        }
-        
-        function renderCustomCategories() {
-            const container = document.getElementById('customCategoryList');
-            if (!container) return;
-            
-            let html = '';
-            customCategories.forEach((cat, index) => {
-                html += `
-                    <div class="custom-category-item">
-                        <div class="custom-category-header">
-                            <select onchange="updateCustomCategory(${index}, 'column', this.value)" title="選擇欄位">
-                                <option value="B" ${cat.column === 'B' ? 'selected' : ''}>B欄</option>
-                                <option value="C" ${cat.column === 'C' ? 'selected' : ''}>C欄</option>
-                                <option value="D" ${cat.column === 'D' ? 'selected' : ''}>D欄</option>
-                                <option value="E" ${cat.column === 'E' ? 'selected' : ''}>E欄</option>
-                            </select>
-                            <input type="text" placeholder="篩選值" value="${escapeHtml(cat.value)}" 
-                                onchange="updateCustomCategory(${index}, 'value', this.value)"
-                                title="輸入要統計的值">
-                        </div>
-                        <div class="custom-category-count" id="customCatCount_${index}">0 筆</div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
+            showToast('✅ 統計設定已儲存', 'success');
+            loadPackingSummary();
         }
         
         function updateCustomCategory(index, field, value) {
-            customCategories[index][field] = value;
-            customCategories[index].enabled = value.trim() !== '';
+            if (customCategories[index]) {
+                customCategories[index][field] = value;
+                customCategories[index].enabled = value.trim() !== '';
+            }
         }
-        
-        function calculateCustomCategories(data) {
-            // data 是 summary 資料
-            customCategories.forEach((cat, index) => {
-                if (!cat.enabled || !cat.value) {
-                    document.getElementById(`customCatCount_${index}`).textContent = '-';
+
+        async function loadHeaders() {
+            try {
+                const result = await packingApiCall('packingGetHeaders', { 
+                    sheet: currentPackingSheet 
+                });
+                
+                if (result.success && result.headers) {
+                    columnHeaders = result.headers;
+                    const headerRow = document.getElementById('tableHeaderRow');
+                    let html = '';
+                    columnHeaders.forEach((header, index) => {
+                        const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
+                        const label = index === 5 ? `${header} (位置)` : header;
+                        html += `<th class="${colClass}">${escapeHtml(label)}</th>`;
+                    });
+                    html += '<th>操作</th>';
+                    headerRow.innerHTML = html;
+                }
+            } catch (e) {
+                console.error('載入標題失敗:', e);
+            }
+        }
+
+        async function loadPackingData(page = 1) {
+            try {
+                const customCatsJson = JSON.stringify(customCategories);
+                
+                const [dataResult, zonesResult, summaryResult] = await Promise.all([
+                    packingApiCall('packingGetAllData', { 
+                        sheet: currentPackingSheet,
+                        page: page,
+                        zone: currentZone === 'all' ? '' : currentZone
+                    }),
+                    packingApiCall('packingGetZones', { sheet: currentPackingSheet }),
+                    packingApiCall('packingGetSummary', { 
+                        sheet: currentPackingSheet,
+                        groupBy: 'B',
+                        customCategories: customCatsJson
+                    })
+                ]);
+
+                if (dataResult.success) {
+                    packingDataCache = [...dataResult.data];
+                    currentPage = dataResult.page || 1;
+                    totalPages = dataResult.totalPages || 1;
+                    totalRecords = dataResult.total || 0;
+                    
+                    updatePaginationControls();
+                }
+
+                if (zonesResult.success) {
+                    updateSidebarStats(zonesResult);
+                    updateZoneList(zonesResult.zones || [], zonesResult.unclassified || 0);
+                }
+
+                if (summaryResult.success && summaryResult.summary) {
+                    updateSummaryDisplay(summaryResult.summary);
+                }
+
+                if (currentZone !== 'all') {
+                    renderDataList();
+                } else {
+                    backToSummary();
+                }
+
+            } catch (e) {
+                showToast('載入失敗：' + e.message, 'error');
+            }
+        }
+
+        function updateSidebarStats(stats) {
+            const statsDiv = document.getElementById('sidebarStats');
+            if (statsDiv && stats.total !== undefined) {
+                statsDiv.style.display = 'block';
+                document.getElementById('statTotal').textContent = stats.total || 0;
+                document.getElementById('statClassified').textContent = (stats.total - (stats.unclassified || 0)) || 0;
+                document.getElementById('statUnclassified').textContent = stats.unclassified || 0;
+            }
+        }
+
+        function updatePaginationControls() {
+            const controls = document.getElementById('paginationControls');
+            const prevBtn = document.getElementById('prevPageBtn');
+            const nextBtn = document.getElementById('nextPageBtn');
+            const info = document.getElementById('paginationInfo');
+
+            if (totalPages <= 1) {
+                controls.style.display = 'none';
+                return;
+            }
+
+            controls.style.display = 'flex';
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+            info.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁（每頁 ${PAGE_SIZE} 筆，共 ${totalRecords} 筆）`;
+        }
+
+        async function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage < 1 || newPage > totalPages) return;
+            
+            currentPage = newPage;
+            await loadPackingData(currentPage);
+            
+            document.getElementById('excelTableContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function updateZoneList(zones, unclassified) {
+            document.getElementById('zoneCountAll').textContent = totalRecords + ' 筆';
+
+            const zoneList = document.getElementById('zoneList');
+            zoneList.innerHTML = '';
+
+            zones.sort((a, b) => b.count - a.count);
+
+            zones.forEach(zone => {
+                const div = document.createElement('div');
+                div.className = 'zone-item';
+                div.onclick = function() { filterZone(zone.name, this); };
+                div.innerHTML = `
+                    <span class="zone-name">📍 ${escapeHtml(zone.name)}</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="zone-count">${zone.count} 筆</span>
+                        <div class="zone-actions">
+                            <span class="zone-edit" onclick="event.stopPropagation(); showRenameZoneModal('${escapeHtml(zone.name)}')" title="修改名稱">✏️</span>
+                            <span class="zone-delete" onclick="event.stopPropagation(); deleteZone('${escapeHtml(zone.name)}')" title="刪除位置">🗑️</span>
+                        </div>
+                    </div>
+                `;
+                zoneList.appendChild(div);
+            });
+
+            if (unclassified > 0) {
+                const div = document.createElement('div');
+                div.className = 'zone-item';
+                div.onclick = function() { filterZone('', this); };
+                div.innerHTML = `
+                    <span class="zone-name">📍 未分類</span>
+                    <span class="zone-count">${unclassified} 筆</span>
+                `;
+                zoneList.appendChild(div);
+            }
+        }
+
+        function filterZone(zone, element) {
+            currentZone = zone ? String(zone).trim() : '';
+            currentPage = 1;
+
+            document.querySelectorAll('.zone-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            if (currentZone === 'all') {
+                document.getElementById('packingSummary').style.display = 'block';
+                document.getElementById('packingDataList').style.display = 'none';
+                document.getElementById('quickInputArea').style.display = 'none';
+                document.getElementById('paginationControls').style.display = 'none';
+                loadPackingSummary();
+            } else {
+                document.getElementById('packingSummary').style.display = 'none';
+                document.getElementById('packingDataList').style.display = 'block';
+                document.getElementById('quickInputArea').style.display = 'block';
+                document.getElementById('currentZoneName').textContent = currentZone || '未分類';
+                document.getElementById('dataListTitle').textContent = (currentZone || '未分類') + ' 資料列表';
+                loadPackingData(1);
+            }
+        }
+
+        function backToSummary() {
+            currentZone = 'all';
+            currentPage = 1;
+            document.querySelectorAll('.zone-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('.zone-item').classList.add('active');
+            document.getElementById('packingSummary').style.display = 'block';
+            document.getElementById('packingDataList').style.display = 'none';
+            document.getElementById('quickInputArea').style.display = 'none';
+            document.getElementById('paginationControls').style.display = 'none';
+        }
+
+        function renderDataList() {
+            const tbody = document.getElementById('excelTableBody');
+            tbody.innerHTML = '';
+
+            if (packingDataCache.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 40px; color: #9e9e9e;">
+                            <p>此位置沒有資料</p>
+                            <p style="font-size: 12px; margin-top: 10px; color: #bbb;">
+                                位置名稱：${escapeHtml(currentZone || '(空白)')}<br>
+                                總數：${totalRecords} 筆
+                            </p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // 排序：將最近加入的資料排在最前面
+            const sortedData = [...packingDataCache].sort((a, b) => {
+                const aIsNew = recentlyAddedKeys.includes(a.A);
+                const bIsNew = recentlyAddedKeys.includes(b.A);
+                if (aIsNew && !bIsNew) return -1;
+                if (!aIsNew && bIsNew) return 1;
+                return 0;
+            });
+
+            sortedData.forEach(item => {
+                const isNew = recentlyAddedKeys.includes(item.A);
+                const tr = document.createElement('tr');
+                if (isNew) tr.classList.add('new-row');
+                
+                let html = '';
+                
+                columnHeaders.forEach((header, index) => {
+                    const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
+                    const value = item[colKey] || '-';
+                    const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
+                    const newBadge = (isNew && index === 0) ? '<span class="new-badge">NEW</span>' : '';
+                    html += `<td class="${colClass}">${escapeHtml(value)}${newBadge}</td>`;
+                });
+
+                html += `
+                    <td>
+                        <div class="excel-actions">
+                            <button class="btn-sm btn-secondary" onclick="showEditModal('${escapeHtml(item.A)}')" title="編輯">✏️</button>
+                            <button class="btn-sm btn-warning" onclick="deleteLocation('${escapeHtml(item.A)}')" title="清除位置">🧹</button>
+                            <button class="btn-sm btn-danger" onclick="deleteRow(${item.rowIndex}, '${escapeHtml(item.A)}')" title="刪除整列">🗑️</button>
+                        </div>
+                    </td>
+                `;
+                
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function deleteRow(rowIndex, key) {
+            if (!confirm(`確定要刪除整列資料嗎？\n\nKey: ${key}\n行號: ${rowIndex}\n\n⚠️ 此操作無法復原！`)) {
+                return;
+            }
+
+            try {
+                const result = await packingApiCall('packingDeleteRow', {
+                    rowIndex: rowIndex,
+                    sheet: currentPackingSheet
+                });
+
+                if (result.success) {
+                    showToast('✅ ' + result.message, 'success');
+                    recentlyAddedKeys = recentlyAddedKeys.filter(k => k !== key);
+                    loadPackingData(currentPage);
+                } else {
+                    showToast('❌ ' + result.error, 'error');
+                }
+            } catch (e) {
+                showToast('❌ 刪除失敗：' + e.message, 'error');
+            }
+        }
+
+        function searchPackingData() {
+            const keyword = document.getElementById('packingSearchInput').value.trim();
+            const range = document.getElementById('packingSearchRange').value;
+
+            if (!keyword) {
+                renderDataList();
+                return;
+            }
+
+            const filtered = packingDataCache.filter(item => {
+                const value = item[range] || '';
+                return value.toString().toLowerCase().includes(keyword.toLowerCase());
+            });
+
+            const tbody = document.getElementById('excelTableBody');
+            tbody.innerHTML = '';
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 40px; color: #9e9e9e;">
+                            沒有符合的資料（僅搜尋當前頁）
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const isNew = recentlyAddedKeys.includes(item.A);
+                const tr = document.createElement('tr');
+                if (isNew) tr.classList.add('new-row');
+                
+                let html = '';
+                
+                columnHeaders.forEach((header, index) => {
+                    const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
+                    const value = item[colKey] || '-';
+                    const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
+                    const newBadge = (isNew && index === 0) ? '<span class="new-badge">NEW</span>' : '';
+                    html += `<td class="${colClass}">${escapeHtml(value)}${newBadge}</td>`;
+                });
+
+                html += `
+                    <td>
+                        <div class="excel-actions">
+                            <button class="btn-sm btn-secondary" onclick="showEditModal('${escapeHtml(item.A)}')" title="編輯">✏️</button>
+                            <button class="btn-sm btn-warning" onclick="deleteLocation('${escapeHtml(item.A)}')" title="清除位置">🧹</button>
+                            <button class="btn-sm btn-danger" onclick="deleteRow(${item.rowIndex}, '${escapeHtml(item.A)}')" title="刪除整列">🗑️</button>
+                        </div>
+                    </td>
+                `;
+                
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function loadPackingSummary() {
+            try {
+                const customCatsJson = JSON.stringify(customCategories);
+                const summaryResult = await packingApiCall('packingGetSummary', { 
+                    sheet: currentPackingSheet,
+                    groupBy: 'B',
+                    customCategories: customCatsJson
+                });
+
+                if (summaryResult.success && summaryResult.summary) {
+                    updateSummaryDisplay(summaryResult.summary);
+                }
+            } catch (e) {
+                console.error('載入 Summary 失敗:', e);
+            }
+        }
+
+        function updateSummaryDisplay(summary) {
+            const tbody = document.getElementById('statsTableBody');
+            
+            if (!summary.zones || summary.zones.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: #999;">無資料</td></tr>';
+                return;
+            }
+
+            let html = '';
+            
+            summary.zones.forEach(zone => {
+                html += `
+                    <tr>
+                        <td style="font-weight: 600;">${escapeHtml(zone.name)}</td>
+                        <td style="font-weight: 700; color: #667eea;">${zone.count}</td>
+                        <td>${zone.cat0 !== undefined ? zone.cat0 : '-'}</td>
+                        <td>${zone.cat1 !== undefined ? zone.cat1 : '-'}</td>
+                        <td>${zone.cat2 !== undefined ? zone.cat2 : '-'}</td>
+                        <td>${zone.cat3 !== undefined ? zone.cat3 : '-'}</td>
+                    </tr>
+                `;
+            });
+
+            if (summary.unclassified > 0) {
+                html += `
+                    <tr style="background: #fff3cd;">
+                        <td style="font-weight: 600;">未分類</td>
+                        <td style="font-weight: 700; color: #856404;">${summary.unclassified}</td>
+                        <td colspan="4">-</td>
+                    </tr>
+                `;
+            }
+            
+            tbody.innerHTML = html;
+        }
+
+        async function quickAddSearch() {
+            if (isProcessingQuickAdd) return;
+
+            const key = document.getElementById('quickKeyInput').value.trim();
+            if (!key) {
+                showToast('請輸入Key值', 'error');
+                return;
+            }
+
+            const resultDiv = document.getElementById('quickSearchResult');
+            resultDiv.innerHTML = '<div style="padding: 10px; color: #666;">查找中...</div>';
+
+            isProcessingQuickAdd = true;
+            const addBtn = document.getElementById('quickAddBtn');
+            addBtn.disabled = true;
+            addBtn.textContent = '處理中...';
+
+            try {
+                const result = await packingApiCall('packingGetByKey', {
+                    key: key,
+                    sheet: currentPackingSheet
+                });
+
+                if (result.found) {
+                    // 檢查是否已存在於當前快取，如果是則移除舊的
+                    const existingIndex = packingDataCache.findIndex(item => item.A === key);
+                    if (existingIndex !== -1) {
+                        packingDataCache.splice(existingIndex, 1);
+                    }
+                    
+                    const quickResultHtml = `
+                        <div class="quick-result-display">
+                            <div class="quick-result-grid">
+                                ${columnHeaders.map((h, i) => {
+                                    const k = ['A','B','C','D','E','F'][i];
+                                    return `<div class="quick-result-item"><label>${h}</label><value>${escapeHtml(result.data[k]) || '-'}</value></div>`;
+                                }).join('')}
+                            </div>
+                            <div class="quick-result-status">✅ 已成功加入 ${escapeHtml(currentZone)}</div>
+                        </div>
+                    `;
+                    resultDiv.innerHTML = quickResultHtml;
+                    
+                    document.getElementById('quickKeyInput').value = '';
+                    document.getElementById('quickKeyInput').focus();
+                    
+                    if (!recentlyAddedKeys.includes(key)) {
+                        recentlyAddedKeys.unshift(key);
+                        if (recentlyAddedKeys.length > 10) recentlyAddedKeys.pop();
+                    }
+                    
+                    const newItem = {
+                        ...result.data,
+                        F: currentZone || ''
+                    };
+                    packingDataCache.unshift(newItem);
+                    totalRecords++;
+                    
+                    setTimeout(() => {
+                        performQuickAddBackground(key, result.data);
+                    }, 100);
+
+                } else {
+                    resultDiv.innerHTML = '<div style="color: #c62828; padding: 15px; background: #ffebee; border-radius: 8px; margin-top: 10px;">❌ 找不到該 Key 值</div>';
+                }
+            } catch (e) {
+                resultDiv.innerHTML = '<div style="color: #c62828; padding: 15px; background: #ffebee; border-radius: 8px; margin-top: 10px;">❌ 查找失敗：' + e.message + '</div>';
+            } finally {
+                isProcessingQuickAdd = false;
+                addBtn.disabled = false;
+                addBtn.textContent = '➕ 加入';
+                
+                setTimeout(() => {
+                    if (resultDiv.querySelector('.quick-result-status')) {
+                        resultDiv.innerHTML = '';
+                    }
+                }, 3000);
+            }
+        }
+
+        async function performQuickAddBackground(key, data) {
+            try {
+                const normalizedZone = currentZone ? String(currentZone).trim() : '';
+
+                await packingApiCall('packingSetLocation', {
+                    key: key,
+                    location: normalizedZone,
+                    sheet: currentPackingSheet
+                });
+
+                await loadPackingData(currentPage);
+                
+                const rowIndex = packingDataCache.findIndex(item => item.A === key);
+                if (rowIndex !== -1) {
+                    highlightRow(rowIndex);
+                }
+
+            } catch (e) {
+                console.error('背景更新失敗:', e);
+                showToast('⚠️ 背景同步失敗，請手動重新整理', 'warning');
+            }
+        }
+
+        function highlightRow(index) {
+            const tbody = document.getElementById('excelTableBody');
+            const rows = tbody.querySelectorAll('tr');
+            if (rows[index]) {
+                rows[index].style.animation = 'highlightRow 2s ease';
+                setTimeout(() => {
+                    rows[index].style.animation = '';
+                }, 2000);
+            }
+        }
+
+        function showAddZoneModal() {
+            const content = `
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">位置名稱</label>
+                    <input type="text" id="newZoneInput" placeholder="例如：A區-1號箱" style="width: 100%; font-size: 16px;">
+                    <div style="margin-top: 8px; font-size: 13px; color: #888;">新增的位置將儲存到資料庫，即使沒有資料也會保留</div>
+                </div>
+            `;
+
+            showModal('➕ 新增位置', content, async () => {
+                const zoneName = document.getElementById('newZoneInput').value.trim();
+                if (!zoneName) {
+                    showToast('請輸入位置名稱', 'error');
                     return;
                 }
+
+                await addNewZone(zoneName);
+            });
+
+            setTimeout(() => {
+                const input = document.getElementById('newZoneInput');
+                if (input) input.focus();
+            }, 100);
+        }
+
+        async function addNewZone(zoneName) {
+            try {
+                const result = await packingApiCall('packingSaveZone', {
+                    zoneName: zoneName,
+                    sheet: currentPackingSheet
+                });
+
+                if (!result.success) throw new Error(result.error || '儲存失敗');
+
+                showToast(`✅ 位置「${zoneName}」已新增`, 'success');
+                closeModal();
                 
-                let count = 0;
-                // 統計所有資料中符合條件的筆數
-                // 注意：這裡使用 summary 傳回的 zones 資料來計算
-                if (data && data.zones) {
-                    // 需要重新計算，這裡簡化處理
-                    // 實際應該從後端獲取詳細統計，或在前端快取全量資料時計算
-                    document.getElementById(`customCatCount_${index}`).textContent = '統計中...';
+                await refreshZoneList();
+            } catch (e) {
+                showToast('❌ 新增失敗：' + e.message, 'error');
+            }
+        }
+
+        async function refreshZoneList() {
+            try {
+                const zonesResult = await packingApiCall('packingGetZones', { 
+                    sheet: currentPackingSheet 
+                });
+                
+                if (zonesResult.success) {
+                    updateSidebarStats(zonesResult);
+                    updateZoneList(zonesResult.zones || [], zonesResult.unclassified || 0);
+                    
+                    if (currentZone === 'all') {
+                        await loadPackingSummary();
+                    }
+                }
+            } catch (e) {
+                console.error('重新整理區域列表失敗:', e);
+            }
+        }
+
+        function showRenameZoneModal(oldName) {
+            const content = `
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">原名稱</label>
+                    <div style="padding: 10px; background: #f5f5f5; border-radius: 6px; color: #666; margin-bottom: 15px;">${escapeHtml(oldName)}</div>
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">新名稱</label>
+                    <input type="text" id="renameZoneInput" placeholder="輸入新名稱..." value="${escapeHtml(oldName)}" style="width: 100%; font-size: 16px;">
+                </div>
+            `;
+
+            showModal('✏️ 修改區域名稱', content, async () => {
+                const newName = document.getElementById('renameZoneInput').value.trim();
+                if (!newName || newName === oldName) {
+                    showToast('名稱未變更', 'info');
+                    return;
+                }
+
+                try {
+                    const result = await packingApiCall('packingRenameZone', {
+                        oldName: oldName,
+                        newName: newName,
+                        sheet: currentPackingSheet
+                    });
+
+                    if (result.success) {
+                        showToast('✅ ' + result.message, 'success');
+                        await loadPackingData(currentPage);
+                        closeModal();
+                    } else {
+                        showToast('❌ ' + result.error, 'error');
+                    }
+                } catch (e) {
+                    showToast('❌ 失敗', 'error');
+                }
+            });
+
+            setTimeout(() => {
+                const input = document.getElementById('renameZoneInput');
+                if (input) {
+                    input.select();
+                    input.focus();
+                }
+            }, 100);
+        }
+
+        async function deleteZone(zoneName) {
+            if (!zoneName) return;
+
+            const trimmedZoneName = zoneName.trim();
+
+            try {
+                const zonesResult = await packingApiCall('packingGetZones', { sheet: currentPackingSheet });
+                const zoneInfo = zonesResult.zones?.find(z => z.name === trimmedZoneName);
+                const count = zoneInfo ? zoneInfo.count : 0;
+
+                const confirmMsg = count > 0 
+                    ? `確定要刪除位置「${trimmedZoneName}」嗎？\n\n此操作將清空該位置下 ${count} 筆資料的裝箱位置（F欄），資料不會被刪除，僅移除位置標記。\n\n⚠️ 此操作無法復原！`
+                    : `確定要刪除位置「${trimmedZoneName}」嗎？\n\n此位置目前沒有資料。`;
+
+                if (!confirm(confirmMsg)) return;
+
+                showToast(`正在刪除位置「${trimmedZoneName}」...`, 'info');
+
+                const result = await packingApiCall('packingDeleteZone', {
+                    zoneName: trimmedZoneName,
+                    sheet: currentPackingSheet
+                });
+
+                if (result.success) {
+                    showToast(`✅ 位置「${trimmedZoneName}」已刪除，${result.clearedCount || count} 筆資料已清空位置標記`, 'success');
+                    
+                    if (currentZone === trimmedZoneName) {
+                        backToSummary();
+                    } else {
+                        await loadPackingData(currentPage);
+                    }
+                } else {
+                    throw new Error(result.error || '刪除失敗');
+                }
+            } catch (e) {
+                showToast('❌ 刪除失敗：' + e.message, 'error');
+            }
+        }
+
+        function showEditModal(key) {
+            const item = packingDataCache.find(i => i.A === key);
+            if (!item) return;
+
+            let inputsHtml = '';
+            columnHeaders.forEach((header, index) => {
+                const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
+                const value = item[colKey] || '';
+                const isF = index === 5;
+                
+                inputsHtml += `
+                    <div style="${isF ? 'background: #fff3cd; padding: 10px; border-radius: 6px; border: 1px solid #ffc107; margin-bottom: 10px;' : 'margin-bottom: 10px;'}">
+                        <label style="font-size: 12px; color: ${isF ? '#856404' : '#888'}; display: block; margin-bottom: 4px; ${isF ? 'font-weight: 600;' : ''}">
+                            ${escapeHtml(header)} ${isF ? '(位置)' : ''}
+                        </label>
+                        <input type="text" id="edit_${colKey}" value="${escapeHtml(value)}" style="width: 100%; ${isF ? 'border-color: #ffc107;' : ''}">
+                    </div>
+                `;
+            });
+
+            const content = `
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="padding: 10px; background: #f0f4ff; border-radius: 6px; border-left: 4px solid #667eea; margin-bottom: 5px;">
+                        <label style="font-size: 12px; color: #666; display: block; margin-bottom: 4px;">Key (A欄)</label>
+                        <div style="font-weight: 600; color: #333; font-size: 16px;">${escapeHtml(item.A)}</div>
+                    </div>
+                    ${inputsHtml}
+                </div>
+            `;
+
+            showModal('✏️ 編輯資料', content, async () => {
+                try {
+                    const newValues = {};
+                    ['A','B','C','D','E','F'].forEach(col => {
+                        newValues[col] = document.getElementById(`edit_${col}`).value;
+                    });
+
+                    await packingApiCall('packingSetLocation', {
+                        key: key,
+                        location: newValues.F,
+                        sheet: currentPackingSheet
+                    });
+
+                    showToast('✅ 資料已更新', 'success');
+                    await loadPackingData(currentPage);
+                    closeModal();
+                } catch (e) {
+                    showToast('❌ 更新失敗', 'error');
                 }
             });
         }
 
-        //================ 手機端 Manual Select 功能 =================
-        function toggleMobileManualModal() {
-            const modal = document.getElementById('mobileManualModal');
-            const btn = document.getElementById('mobileManualBtn');
+        async function deleteLocation(key) {
+            if (!confirm('確定要清除「' + key + '」的位置標記嗎？')) return;
 
-            if (modal.classList.contains('active')) {
-                closeMobileManualModal();
-            } else {
-                modal.classList.add('active');
-                btn.classList.add('active');
-                renderMobileManualList();
-                setTimeout(() => {
-                    document.getElementById('mobileNewManualItem')?.focus();
-                }, 100);
-            }
-        }
-
-        function closeMobileManualModal(e) {
-            if (e && e.target !== document.getElementById('mobileManualModal')) return;
-
-            document.getElementById('mobileManualModal').classList.remove('active');
-            document.getElementById('mobileManualBtn').classList.remove('active');
-        }
-
-        function renderMobileManualList() {
-            const listDiv = document.getElementById('mobileManualList');
-
-            if (manualSelectData.length === 0) {
-                listDiv.innerHTML = '<div class="empty-list" style="text-align: center; padding: 20px; color: #9e9e9e;">暫無項目<br>在下方輸入添加</div>';
-            } else {
-                let html = '';
-                manualSelectData.forEach((item, index) => {
-                    html += `
-                        <div class="manual-item" style="background: white; margin-bottom: 5px; border-radius: 8px;">
-                            <span class="manual-item-text" onclick="useMobileManualItem('${escapeHtml(item)}')">${escapeHtml(item)}</span>
-                            <span class="manual-item-remove" onclick="removeMobileManualItem('${escapeHtml(item)}', ${index})">×</span>
-                        </div>
-                    `;
+            try {
+                await packingApiCall('packingSetLocation', {
+                    key: key,
+                    location: '',
+                    sheet: currentPackingSheet
                 });
-                listDiv.innerHTML = html;
+
+                showToast('✅ 已清除位置標記', 'success');
+                await loadPackingData(currentPage);
+            } catch (e) {
+                showToast('❌ 失敗', 'error');
             }
         }
 
-        async function addMobileManualItem() {
-            const input = document.getElementById('mobileNewManualItem');
-            const value = input.value.trim();
-            if (!value) return;
-
-            if (!manualSelectData.includes(value)) {
-                manualSelectData.push(value);
-                renderManualList();
-                renderMobileManualList();
-                input.value = '';
-            }
+        async function clearPackingLocations() {
+            if (!confirm('確定要清除全部裝箱位置嗎？\n\n此操作將清空所有資料的 F 欄（位置欄位），資料本身不會被刪除。\n\n⚠️ 此操作無法復原！')) return;
 
             try {
-                await libraryApiCall('addToManualSelect', { value: value });
+                const result = await packingApiCall('packingClearLocations', { sheet: currentPackingSheet });
+                if (result.success) {
+                    showToast('✅ ' + result.message, 'success');
+                    recentlyAddedKeys = [];
+                    await loadPackingData(1);
+                } else {
+                    showToast('❌ ' + result.error, 'error');
+                }
             } catch (e) {
-                console.error('背景同步失敗:', e);
+                showToast('❌ 失敗', 'error');
             }
         }
 
-        async function removeMobileManualItem(value, index) {
-            manualSelectData.splice(index, 1);
-            renderManualList();
-            renderMobileManualList();
+        async function clearPackingAll() {
+            const confirmMsg = currentPackingSheet === 'PackBox' 
+                ? '⚠️ 確定要清除 PACKBOX 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！'
+                : '⚠️ 確定要清除 PACKBOXSPARE 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！';
+
+            if (!confirm(confirmMsg)) return;
 
             try {
-                await libraryApiCall('removeFromManualSelect', { value: value });
-            } catch (e) {
-                console.error('背景同步失敗:', e);
+                showToast('正在清空資料...', 'info');
+
+                const result = await packingApiCall('packingClearAll', { 
+                    sheet: currentPackingSheet
+                });
+                
+                if (result.success) {
+                    showToast(result.message, 'success');
+                    recentlyAddedKeys = [];
+                    await loadPackingData();
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                showToast('清空失敗: ' + error.message, 'error');
+                console.error('清空錯誤:', error);
             }
         }
 
-        async function removeMobileLastManual() {
-            if (manualSelectData.length === 0) return;
-            const lastItem = manualSelectData[manualSelectData.length - 1];
+        function showUploadModal() {
+            if (isUploading) {
+                showToast('⚠️ 正在上傳中，請等待完成或中斷', 'warning');
+                return;
+            }
 
-            manualSelectData.pop();
-            renderManualList();
-            renderMobileManualList();
+            selectedModalFile = null;
+            document.getElementById('modalFileInput').value = '';
+            document.getElementById('uploadFileInfo').style.display = 'none';
+            document.getElementById('selectedFileName').textContent = '';
+
+            document.getElementById('uploadProgressContainer').classList.remove('active');
+            document.getElementById('uploadProgressBar').style.width = '0%';
+            document.getElementById('uploadProgressBar').textContent = '0%';
+
+            document.getElementById('uploadStatusText').classList.remove('active');
+            document.getElementById('uploadStatusText').textContent = '';
+
+            document.getElementById('modalUploadBtn').disabled = true;
+            document.getElementById('modalUploadBtn').style.display = 'block';
+            document.getElementById('modalUploadBtn').innerHTML = '🚀 開始上傳';
+            document.getElementById('cancelUploadBtn').style.display = 'none';
+            document.getElementById('closeUploadModalBtn').style.display = 'block';
+
+            document.getElementById('uploadModalStatus').style.display = 'none';
+            document.getElementById('uploadModalTitle').textContent = `📤 上傳 Excel 到 ${currentPackingSheet}`;
+
+            const uploadArea = document.getElementById('modalUploadArea');
+            uploadArea.className = 'upload-area';
+            if (currentPackingSheet === 'PACKBOXSPARE') uploadArea.classList.add('spare-mode');
+            uploadArea.innerHTML = `
+                <div class="upload-icon">📁</div>
+                <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">點擊選擇 Excel 檔案</div>
+                <div class="upload-hint" style="font-size: 13px; color: #888; line-height: 1.6;">
+                    支援格式：.xlsx, .xls<br>
+                    A-F欄位對應：A=Key, B-E=資料, F=位置（可留空）<br>
+                    檔案大小限制：5MB
+                </div>
+            `;
+
+            const uploadBtn = document.getElementById('modalUploadBtn');
+            if (currentPackingSheet === 'PACKBOXSPARE') {
+                uploadBtn.className = 'btn-spare';
+                document.getElementById('uploadProgressBar').classList.add('spare');
+            } else {
+                uploadBtn.className = 'btn-primary';
+                document.getElementById('uploadProgressBar').classList.remove('spare');
+            }
+
+            document.getElementById('modalFileInput').accept = '.xlsx,.xls';
+
+            document.getElementById('uploadModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUploadModal(e) {
+            if (isUploading && e && e.target === document.getElementById('uploadModalOverlay')) {
+                showToast('⚠️ 請先中斷上傳再關閉', 'warning');
+                return;
+            }
+            if (e && e.target !== document.getElementById('uploadModalOverlay') && 
+                e.target !== document.getElementById('closeUploadModalBtn')) return;
+
+            document.getElementById('uploadModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleModalFileSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const validExts = ['.xlsx', '.xls'];
+            const fileExt = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+            
+            if (!validExts.includes(fileExt)) {
+                showUploadModalStatus('❌ 請選擇 Excel 檔案 (.xlsx 或 .xls)', 'error');
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                showUploadModalStatus('❌ 檔案大小超過 5MB 限制', 'error');
+                return;
+            }
+
+            selectedModalFile = file;
+            document.getElementById('selectedFileName').textContent = file.name;
+            document.getElementById('uploadFileInfo').style.display = 'block';
+            document.getElementById('modalUploadBtn').disabled = false;
+
+            const uploadArea = document.getElementById('modalUploadArea');
+            uploadArea.classList.add('has-file');
+            uploadArea.innerHTML = `
+                <div class="upload-icon">✅</div>
+                <div style="font-weight: 600; font-size: 18px; margin-bottom: 5px;">${escapeHtml(file.name)}</div>
+                <div style="color: #28a745; font-size: 14px; font-weight: 500;">
+                    檔案大小：${(file.size / 1024).toFixed(1)} KB<br>
+                    點擊重新選擇
+                </div>
+            `;
+
+            showUploadModalStatus('✅ 檔案已選擇，請點擊「開始上傳」', 'success');
+        }
+
+        function showUploadModalStatus(message, type) {
+            const bar = document.getElementById('uploadModalStatus');
+            bar.className = 'status-bar ' + type;
+            bar.innerHTML = message;
+            bar.style.display = 'block';
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    bar.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function updateProgress(percent, statusText) {
+            const progressBar = document.getElementById('uploadProgressBar');
+            const progressContainer = document.getElementById('uploadProgressContainer');
+            const statusTextEl = document.getElementById('uploadStatusText');
+
+            progressContainer.classList.add('active');
+            statusTextEl.classList.add('active');
+            progressBar.style.width = percent + '%';
+            progressBar.textContent = percent + '%';
+            if (statusText) statusTextEl.textContent = statusText;
+        }
+
+        function cancelUpload() {
+            if (currentUploadController) {
+                currentUploadController.aborted = true;
+            }
+            isUploading = false;
+
+            document.getElementById('cancelUploadBtn').style.display = 'none';
+            document.getElementById('closeUploadModalBtn').style.display = 'block';
+            document.getElementById('modalUploadBtn').style.display = 'block';
+            document.getElementById('modalUploadBtn').disabled = false;
+            document.getElementById('modalUploadBtn').innerHTML = '🚀 開始上傳';
+
+            updateProgress(0, '已中斷');
+            showUploadModalStatus('⛔ 上傳已中斷', 'error');
+            showToast('上傳已中斷', 'info');
+        }
+
+        async function confirmModalUpload() {
+            if (!selectedModalFile || isUploading) return;
+
+            isUploading = true;
+            currentUploadController = { aborted: false };
+
+            document.getElementById('cancelUploadBtn').style.display = 'block';
+            document.getElementById('closeUploadModalBtn').style.display = 'none';
+
+            const btn = document.getElementById('modalUploadBtn');
+            btn.disabled = true;
 
             try {
-                await libraryApiCall('removeFromManualSelect', { value: lastItem });
+                updateProgress(5, '讀取Excel檔案...');
+                const data = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.onerror = reject;
+                    reader.readAsArrayBuffer(selectedModalFile);
+                });
+
+                updateProgress(10, '解析Excel資料...');
+                const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: '' });
+
+                const validData = jsonData.filter(row => row[0] && String(row[0]).trim() !== '');
+                if (validData.length === 0) {
+                    throw new Error('Excel中沒有有效資料（請確保A欄有Key值）');
+                }
+
+                const normalizedData = validData.map(row => {
+                    const newRow = new Array(6).fill('');
+                    for (let i = 0; i < Math.min(row.length, 6); i++) {
+                        newRow[i] = row[i] ? String(row[i]).trim() : '';
+                    }
+                    return newRow;
+                });
+
+                const totalRecords = normalizedData.length;
+                
+                const BATCH_SIZE = UPLOAD_BATCH_SIZE;
+                const totalBatches = Math.ceil(totalRecords / BATCH_SIZE);
+                let totalUpdated = 0;
+                let totalInserted = 0;
+                let totalProcessed = 0;
+                let failedBatches = [];
+                let currentBatch = 0;
+
+                for (let i = 0; i < totalRecords; i += BATCH_SIZE) {
+                    if (currentUploadController.aborted) {
+                        throw new Error('使用者中斷');
+                    }
+
+                    currentBatch++;
+                    const batchData = normalizedData.slice(i, i + BATCH_SIZE);
+                    const progressPercent = 10 + Math.floor((currentBatch / totalBatches) * 85);
+                    
+                    updateProgress(progressPercent, `上傳第 ${currentBatch}/${totalBatches} 批 (${batchData.length} 筆)...`);
+                    btn.innerHTML = `<span style="display: inline-block; width: 18px; height: 18px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 6px;"></span>第 ${currentBatch}/${totalBatches} 批...`;
+
+                    try {
+                        const result = await packingApiCall('packingUploadData', {
+                            data: JSON.stringify(batchData),
+                            sheet: currentPackingSheet
+                        }, 60000);
+
+                        if (result.success) {
+                            totalUpdated += (result.updated || 0);
+                            totalInserted += (result.inserted || 0);
+                            totalProcessed += (result.processed || batchData.length);
+                        } else {
+                            failedBatches.push({ batch: currentBatch, error: result.error || '未知錯誤' });
+                            console.error(`批次 ${currentBatch} 失敗:`, result.error);
+                        }
+                    } catch (e) {
+                        failedBatches.push({ batch: currentBatch, error: e.message });
+                        console.error(`批次 ${currentBatch} 錯誤:`, e);
+                    }
+
+                    if (i + BATCH_SIZE < totalRecords) {
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                }
+
+                updateProgress(100, '完成！');
+
+                if (failedBatches.length > 0) {
+                    const errorDetails = failedBatches.map(f => `第${f.batch}批: ${f.error.substring(0, 30)}`).join('<br>');
+                    showUploadModalStatus(
+                        `⚠️ 部分批次失敗<br>成功: ${totalProcessed}/${totalRecords} 筆<br>更新: ${totalUpdated} | 新增: ${totalInserted}<br>失敗: ${failedBatches.length} 批<br><small>${errorDetails}</small>`, 
+                        'warning'
+                    );
+                } else {
+                    showUploadModalStatus(
+                        `✅ 全部上傳成功！<br>總筆數: ${totalRecords}<br>更新: ${totalUpdated} 筆 | 新增: ${totalInserted} 筆`, 
+                        'success'
+                    );
+                }
+
+                setTimeout(() => {
+                    closeUploadModal();
+                    loadPackingData(1);
+                }, 2500);
+
             } catch (e) {
-                console.error('背景同步失敗:', e);
+                if (e.message === '使用者中斷') {
+                    updateProgress(0, '已中斷');
+                    showUploadModalStatus('⛔ 上傳已由使用者中斷', 'error');
+                } else {
+                    updateProgress(0, '上傳失敗');
+                    showUploadModalStatus('❌ ' + e.message, 'error');
+                }
+            } finally {
+                isUploading = false;
+                currentUploadController = null;
+                btn.disabled = false;
+                btn.innerHTML = '🚀 開始上傳';
+                document.getElementById('cancelUploadBtn').style.display = 'none';
+                document.getElementById('closeUploadModalBtn').style.display = 'block';
             }
         }
 
-        async function clearMobileManualSelect() {
-            if (!confirm('確定清空全部 Manual Select 項目？')) return;
-
-            manualSelectData = [];
-            renderManualList();
-            renderMobileManualList();
+        async function exportPackingExcel() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '⏳ 匯出中...';
 
             try {
-                await libraryApiCall('clearManualSelect');
+                const result = await packingApiCall('packingExportExcel', {
+                    sheet: currentPackingSheet
+                });
+
+                if (result.success && result.data) {
+                    const base64 = result.data;
+                    const byteCharacters = atob(base64);
+                    const byteArray = new Uint8Array(byteCharacters.length);
+                    for (let i = 0; i < byteCharacters.length; i++) {
+                        byteArray[i] = byteCharacters.charCodeAt(i);
+                    }
+                    
+                    const blob = new Blob([byteArray], { 
+                        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
+                    });
+                    
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    link.href = url;
+                    link.download = result.filename || `${currentPackingSheet}_${new Date().toISOString().slice(0,10)}.xlsx`;
+                    
+                    document.body.appendChild(link);
+                    link.click();
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                    
+                    showToast('✅ Excel匯出成功', 'success');
+                } else {
+                    throw new Error(result.error || '匯出失敗');
+                }
             } catch (e) {
-                console.error('清空失敗:', e);
+                showToast('❌ 匯出失敗：' + e.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
             }
         }
 
-        function useMobileManualItem(value) {
-            if (currentPanel === 'search') {
-                document.getElementById('searchInput').value = value;
+        function showModal(title, content, callback) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalContent').innerHTML = content;
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            const confirmBtn = document.getElementById('modalConfirmBtn');
+            if (currentPackingSheet === 'PACKBOXSPARE') {
+                confirmBtn.className = 'btn-spare';
+            } else {
+                confirmBtn.className = 'btn-primary';
+            }
+
+            modalCallback = callback;
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('modalOverlay')) return;
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            modalCallback = null;
+        }
+
+        function modalConfirm() {
+            if (modalCallback) modalCallback();
+        }
+
+        function showToast(message, type = 'info') {
+            const existingToast = document.querySelector('.temp-toast');
+            if (existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'temp-toast status-bar ' + type;
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 9999;
+                max-width: 90%;
+                min-width: 300px;
+                text-align: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+
+            document.body.appendChild(toast);
+
+            if (type === 'success' || type === 'info') {
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateX(-50%) translateY(-20px)';
+                    toast.style.transition = 'all 0.3s ease';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (isUploading) {
+                    if (confirm('正在上傳中，是否中斷？')) {
+                        cancelUpload();
+                    }
+                    return;
+                }
+                closeModal();
+                closeUploadModal();
                 closeMobileManualModal();
-                searchBook();
-            } else if (currentPanel === 'location') {
-                document.getElementById('locationInput').value = value;
-                closeMobileManualModal();
-                searchLocation();
             }
-        }
+        });
 
-        function exportMobileManualSelect() {
-            exportManualSelect();
-        }
-
-        //================ 圖書查詢功能 =================
+        //================ 其他保留功能 =================
+        
         async function searchBook() {
             const input = document.getElementById('searchInput').value.trim();
             const btn = document.getElementById('searchBtn');
@@ -3326,7 +4305,6 @@
             }
         }
 
-        //================ Manual Select 功能 =================
         async function loadManualSelect() {
             try {
                 const data = await libraryApiCall('getManualSelect');
@@ -3461,1267 +4439,127 @@
             }
         }
 
-        //================ 裝箱功能 - 優化修正版 =================
-
-        /**
-         * 載入標題列（第1列）
-         */
-        async function loadHeaders() {
-            try {
-                const result = await packingApiCall('packingGetHeaders', { 
-                    sheet: currentPackingSheet 
-                });
-                
-                if (result.success && result.headers) {
-                    columnHeaders = result.headers;
-                    // 更新表格標題
-                    const headerRow = document.getElementById('tableHeaderRow');
-                    let html = '';
-                    columnHeaders.forEach((header, index) => {
-                        const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
-                        const label = index === 5 ? `${header} (位置)` : header;
-                        html += `<th class="${colClass}">${escapeHtml(label)}</th>`;
-                    });
-                    html += '<th>操作</th>';
-                    headerRow.innerHTML = html;
-                }
-            } catch (e) {
-                console.error('載入標題失敗:', e);
-            }
-        }
-
-        /**
-         * 分頁載入資料
-         */
-        async function loadPackingData(page = 1) {
-            try {
-                // 載入分頁資料
-                const dataResult = await packingApiCall('packingGetAllData', { 
-                    sheet: currentPackingSheet,
-                    page: page,
-                    zone: currentZone === 'all' ? '' : currentZone
-                });
-
-                // 載入統計資料（真實後端統計）
-                const [zonesResult, summaryResult] = await Promise.all([
-                    packingApiCall('packingGetZones', { sheet: currentPackingSheet }),
-                    packingApiCall('packingGetSummary', { 
-                        sheet: currentPackingSheet,
-                        groupBy: document.getElementById('summaryGroupBy')?.value || 'B'
-                    })
-                ]);
-
-                if (dataResult.success) {
-                    packingDataCache = [...dataResult.data];
-                    currentPage = dataResult.page || 1;
-                    totalPages = dataResult.totalPages || 1;
-                    totalRecords = dataResult.total || 0;
-                    
-                    // 更新分頁控制
-                    updatePaginationControls();
-                }
-
-                // 更新側邊欄統計
-                if (zonesResult.success) {
-                    updateSidebarStats(zonesResult);
-                    updateZoneList(zonesResult.zones || [], zonesResult.unclassified || 0);
-                }
-
-                // 更新總覽統計
-                if (summaryResult.success && summaryResult.summary) {
-                    updateSummaryDisplay(summaryResult.summary);
-                    // 計算自定義分類統計
-                    calculateCustomCategoryStats(summaryResult.rawData || packingDataCache);
-                }
-
-                if (currentZone !== 'all') {
-                    renderDataList();
-                } else {
-                    backToSummary();
-                }
-
-            } catch (e) {
-                showToast('載入失敗：' + e.message, 'error');
-            }
-        }
-        
-        // 新增：計算自定義分類統計
-        function calculateCustomCategoryStats(data) {
-            if (!data || !Array.isArray(data)) return;
-            
-            customCategories.forEach((cat, index) => {
-                if (!cat.enabled || !cat.value) {
-                    document.getElementById(`customCatCount_${index}`).textContent = '-';
-                    return;
-                }
-                
-                const count = data.filter(item => {
-                    const cellValue = item[cat.column] || '';
-                    return cellValue.toString().trim().toLowerCase() === cat.value.toString().trim().toLowerCase();
-                }).length;
-                
-                document.getElementById(`customCatCount_${index}`).textContent = count + ' 筆';
-            });
-        }
-
-        /**
-         * 更新側邊欄統計數據
-         */
-        function updateSidebarStats(stats) {
-            const statsDiv = document.getElementById('sidebarStats');
-            if (statsDiv && stats.total !== undefined) {
-                statsDiv.style.display = 'block';
-                document.getElementById('statTotal').textContent = stats.total || 0;
-                document.getElementById('statClassified').textContent = (stats.total - (stats.unclassified || 0)) || 0;
-                document.getElementById('statUnclassified').textContent = stats.unclassified || 0;
-            }
-        }
-
-        /**
-         * 更新分頁控制元件
-         */
-        function updatePaginationControls() {
-            const controls = document.getElementById('paginationControls');
-            const prevBtn = document.getElementById('prevPageBtn');
-            const nextBtn = document.getElementById('nextPageBtn');
-            const info = document.getElementById('paginationInfo');
-
-            if (totalPages <= 1) {
-                controls.style.display = 'none';
-                return;
-            }
-
-            controls.style.display = 'flex';
-            prevBtn.disabled = currentPage <= 1;
-            nextBtn.disabled = currentPage >= totalPages;
-            info.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁（每頁 ${PAGE_SIZE} 筆，共 ${totalRecords} 筆）`;
-        }
-
-        /**
-         * 分頁切換
-         */
-        async function changePage(direction) {
-            const newPage = currentPage + direction;
-            if (newPage < 1 || newPage > totalPages) return;
-            
-            currentPage = newPage;
-            await loadPackingData(currentPage);
-            
-            // 捲動到表格頂部
-            document.getElementById('excelTableContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function updateZoneList(zones, unclassified) {
-            document.getElementById('zoneCountAll').textContent = totalRecords + ' 筆';
-
-            const zoneList = document.getElementById('zoneList');
-            zoneList.innerHTML = '';
-
-            // 排序：有資料的在前，依數量降序
-            zones.sort((a, b) => b.count - a.count);
-
-            zones.forEach(zone => {
-                const div = document.createElement('div');
-                div.className = 'zone-item';
-                div.onclick = function() { filterZone(zone.name, this); };
-                div.innerHTML = `
-                    <span class="zone-name">📍 ${escapeHtml(zone.name)}</span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="zone-count">${zone.count} 筆</span>
-                        <div class="zone-actions">
-                            <span class="zone-edit" onclick="event.stopPropagation(); showRenameZoneModal('${escapeHtml(zone.name)}')" title="修改名稱">✏️</span>
-                            <span class="zone-delete" onclick="event.stopPropagation(); deleteZone('${escapeHtml(zone.name)}')" title="刪除位置">🗑️</span>
-                        </div>
-                    </div>
-                `;
-                zoneList.appendChild(div);
-            });
-
-            // 顯示未分類
-            if (unclassified > 0) {
-                const div = document.createElement('div');
-                div.className = 'zone-item';
-                div.onclick = function() { filterZone('', this); };
-                div.innerHTML = `
-                    <span class="zone-name">📍 未分類</span>
-                    <span class="zone-count">${unclassified} 筆</span>
-                `;
-                zoneList.appendChild(div);
-            }
-        }
-
-        function filterZone(zone, element) {
-            currentZone = zone ? String(zone).trim() : '';
-            currentPage = 1; // 重置頁碼
-
-            document.querySelectorAll('.zone-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            element.classList.add('active');
-
-            if (currentZone === 'all') {
-                document.getElementById('packingSummary').style.display = 'block';
-                document.getElementById('packingDataList').style.display = 'none';
-                document.getElementById('quickInputArea').style.display = 'none';
-                document.getElementById('paginationControls').style.display = 'none';
-                loadPackingSummary();
-            } else {
-                document.getElementById('packingSummary').style.display = 'none';
-                document.getElementById('packingDataList').style.display = 'block';
-                document.getElementById('quickInputArea').style.display = 'block';
-                document.getElementById('currentZoneName').textContent = currentZone || '未分類';
-                document.getElementById('dataListTitle').textContent = (currentZone || '未分類') + ' 資料列表';
-                loadPackingData(1); // 載入第一頁
-            }
-        }
-
-        function backToSummary() {
-            currentZone = 'all';
-            currentPage = 1;
-            document.querySelectorAll('.zone-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelector('.zone-item').classList.add('active');
-            document.getElementById('packingSummary').style.display = 'block';
-            document.getElementById('packingDataList').style.display = 'none';
-            document.getElementById('quickInputArea').style.display = 'none';
-            document.getElementById('paginationControls').style.display = 'none';
-        }
-
-        function renderDataList() {
-            const tbody = document.getElementById('excelTableBody');
-            tbody.innerHTML = '';
-
-            if (packingDataCache.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="7" style="text-align: center; padding: 40px; color: #9e9e9e;">
-                            <p>此位置沒有資料</p>
-                            <p style="font-size: 12px; margin-top: 10px; color: #bbb;">
-                                位置名稱：${escapeHtml(currentZone || '(空白)')}<br>
-                                總數：${totalRecords} 筆
-                            </p>
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-
-            // 排序：將最近加入的資料排在最前面
-            const sortedData = [...packingDataCache].sort((a, b) => {
-                const aIsNew = recentlyAddedKeys.includes(a.A);
-                const bIsNew = recentlyAddedKeys.includes(b.A);
-                if (aIsNew && !bIsNew) return -1;
-                if (!aIsNew && bIsNew) return 1;
-                return 0;
-            });
-
-            sortedData.forEach(item => {
-                const isNew = recentlyAddedKeys.includes(item.A);
-                const tr = document.createElement('tr');
-                if (isNew) tr.classList.add('new-row');
-                
-                let html = '';
-                
-                // 動態生成欄位
-                columnHeaders.forEach((header, index) => {
-                    const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
-                    const value = item[colKey] || '-';
-                    const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
-                    const newBadge = (isNew && index === 0) ? '<span class="new-badge">NEW</span>' : '';
-                    html += `<td class="${colClass}">${escapeHtml(value)}${newBadge}</td>`;
-                });
-
-                // 操作按鈕：編輯、刪除位置、刪除整列
-                html += `
-                    <td>
-                        <div class="excel-actions">
-                            <button class="btn-sm btn-secondary" onclick="showEditModal('${escapeHtml(item.A)}')" title="編輯">✏️</button>
-                            <button class="btn-sm btn-warning" onclick="deleteLocation('${escapeHtml(item.A)}')" title="清除位置">🧹</button>
-                            <button class="btn-sm btn-danger" onclick="deleteRow(${item.rowIndex}, '${escapeHtml(item.A)}')" title="刪除整列">🗑️</button>
-                        </div>
-                    </td>
-                `;
-                
-                tr.innerHTML = html;
-                tbody.appendChild(tr);
-            });
-        }
-
-        /**
-         * 新增：刪除整列資料
-         */
-        async function deleteRow(rowIndex, key) {
-            if (!confirm(`確定要刪除整列資料嗎？\n\nKey: ${key}\n行號: ${rowIndex}\n\n⚠️ 此操作無法復原！`)) {
-                return;
-            }
-
-            try {
-                const result = await packingApiCall('packingDeleteRow', {
-                    rowIndex: rowIndex,
-                    sheet: currentPackingSheet
-                });
-
-                if (result.success) {
-                    showToast('✅ ' + result.message, 'success');
-                    // 從最近加入列表中移除
-                    recentlyAddedKeys = recentlyAddedKeys.filter(k => k !== key);
-                    // 重新載入當前頁
-                    loadPackingData(currentPage);
-                } else {
-                    showToast('❌ ' + result.error, 'error');
-                }
-            } catch (e) {
-                showToast('❌ 刪除失敗：' + e.message, 'error');
-            }
-        }
-
-        function searchPackingData() {
-            const keyword = document.getElementById('packingSearchInput').value.trim();
-            const range = document.getElementById('packingSearchRange').value;
-
-            if (!keyword) {
-                renderDataList();
-                return;
-            }
-
-            // 在前端快取中搜尋（只搜尋當前頁）
-            const filtered = packingDataCache.filter(item => {
-                const value = item[range] || '';
-                return value.toString().toLowerCase().includes(keyword.toLowerCase());
-            });
-
-            const tbody = document.getElementById('excelTableBody');
-            tbody.innerHTML = '';
-
-            if (filtered.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="7" style="text-align: center; padding: 40px; color: #9e9e9e;">
-                            沒有符合的資料（僅搜尋當前頁）
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-
-            filtered.forEach(item => {
-                const isNew = recentlyAddedKeys.includes(item.A);
-                const tr = document.createElement('tr');
-                if (isNew) tr.classList.add('new-row');
-                
-                let html = '';
-                
-                columnHeaders.forEach((header, index) => {
-                    const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
-                    const value = item[colKey] || '-';
-                    const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
-                    const newBadge = (isNew && index === 0) ? '<span class="new-badge">NEW</span>' : '';
-                    html += `<td class="${colClass}">${escapeHtml(value)}${newBadge}</td>`;
-                });
-
-                html += `
-                    <td>
-                        <div class="excel-actions">
-                            <button class="btn-sm btn-secondary" onclick="showEditModal('${escapeHtml(item.A)}')" title="編輯">✏️</button>
-                            <button class="btn-sm btn-warning" onclick="deleteLocation('${escapeHtml(item.A)}')" title="清除位置">🧹</button>
-                            <button class="btn-sm btn-danger" onclick="deleteRow(${item.rowIndex}, '${escapeHtml(item.A)}')" title="刪除整列">🗑️</button>
-                        </div>
-                    </td>
-                `;
-                
-                tr.innerHTML = html;
-                tbody.appendChild(tr);
-            });
-        }
-
-        async function loadPackingSummary() {
-            try {
-                // 載入統計時同時載入原始資料用於自定義分類計算
-                const [summaryResult, allDataResult] = await Promise.all([
-                    packingApiCall('packingGetSummary', { 
-                        sheet: currentPackingSheet,
-                        groupBy: 'B'
-                    }),
-                    packingApiCall('packingGetAllData', {
-                        sheet: currentPackingSheet,
-                        page: 1,
-                        zone: ''
-                    })
-                ]);
-
-                if (summaryResult.success && summaryResult.summary) {
-                    updateSummaryDisplay(summaryResult.summary);
-                }
-                
-                // 使用全量資料計算自定義分類（取第一頁作為樣本，或需要時載入全部）
-                if (allDataResult.success) {
-                    calculateCustomCategoryStats(allDataResult.data);
-                }
-            } catch (e) {
-                console.error('載入 Summary 失敗:', e);
-            }
-        }
-
-        function updateSummaryDisplay(summary) {
-            // 更新區域統計
-            const zoneList = document.getElementById('zoneSummaryList');
-            if (summary.zones && summary.zones.length > 0) {
-                let html = '';
-                summary.zones.forEach(z => {
-                    html += `
-                        <div class="summary-item">
-                            <span class="summary-label">${escapeHtml(z.name)}</span>
-                            <span class="summary-value">${z.count} 筆</span>
-                        </div>
-                    `;
-                });
-                
-                if (summary.unclassified > 0) {
-                    html += `
-                        <div class="summary-item" style="color: #856404;">
-                            <span class="summary-label">未分類</span>
-                            <span class="summary-value">${summary.unclassified} 筆</span>
-                        </div>
-                    `;
-                }
-                zoneList.innerHTML = html;
-            } else {
-                zoneList.innerHTML = '<div class="summary-item"><span class="summary-label">無資料</span><span class="summary-value">0</span></div>';
-            }
-        }
-
-        /**
-         * 【優化】快速加入 - 立即回饋，背景更新，新資料排在最前
-         */
-        async function quickAddSearch() {
-            if (isProcessingQuickAdd) return;
-
-            const key = document.getElementById('quickKeyInput').value.trim();
-            if (!key) {
-                showToast('請輸入Key值', 'error');
-                return;
-            }
-
-            const resultDiv = document.getElementById('quickSearchResult');
-            resultDiv.innerHTML = '<div style="padding: 10px; color: #666;">查找中...</div>';
-
-            isProcessingQuickAdd = true;
-            const addBtn = document.getElementById('quickAddBtn');
-            addBtn.disabled = true;
-            addBtn.textContent = '處理中...';
-
-            try {
-                // 先搜尋資料是否存在
-                const result = await packingApiCall('packingGetByKey', {
-                    key: key,
-                    sheet: currentPackingSheet
-                });
-
-                if (result.found) {
-                    // 立即更新UI顯示成功，不等待完整重新載入
-                    const quickResultHtml = `
-                        <div class="quick-result-display">
-                            <div class="quick-result-grid">
-                                ${columnHeaders.map((h, i) => {
-                                    const k = ['A','B','C','D','E','F'][i];
-                                    return `<div class="quick-result-item"><label>${h}</label><value>${escapeHtml(result.data[k]) || '-'}</value></div>`;
-                                }).join('')}
-                            </div>
-                            <div class="quick-result-status">✅ 已成功加入 ${escapeHtml(currentZone)}</div>
-                        </div>
-                    `;
-                    resultDiv.innerHTML = quickResultHtml;
-                    
-                    // 清空輸入框並聚焦，讓使用者可以立即輸入下一筆
-                    document.getElementById('quickKeyInput').value = '';
-                    document.getElementById('quickKeyInput').focus();
-                    
-                    // 記錄到最近加入列表
-                    if (!recentlyAddedKeys.includes(key)) {
-                        recentlyAddedKeys.unshift(key);
-                        // 只保留最近10筆
-                        if (recentlyAddedKeys.length > 10) recentlyAddedKeys.pop();
-                    }
-                    
-                    // 更新本地快取資料（模擬新資料已加入）
-                    const newItem = {
-                        ...result.data,
-                        F: currentZone || ''
-                    };
-                    packingDataCache.unshift(newItem);
-                    totalRecords++;
-                    
-                    // 在背景執行實際更新
-                    setTimeout(() => {
-                        performQuickAddBackground(key, result.data);
-                    }, 100);
-
-                } else {
-                    resultDiv.innerHTML = '<div style="color: #c62828; padding: 15px; background: #ffebee; border-radius: 8px; margin-top: 10px;">❌ 找不到該 Key 值</div>';
-                }
-            } catch (e) {
-                resultDiv.innerHTML = '<div style="color: #c62828; padding: 15px; background: #ffebee; border-radius: 8px; margin-top: 10px;">❌ 查找失敗：' + e.message + '</div>';
-            } finally {
-                isProcessingQuickAdd = false;
-                addBtn.disabled = false;
-                addBtn.textContent = '➕ 加入';
-                
-                // 3秒後清除結果顯示
-                setTimeout(() => {
-                    if (resultDiv.querySelector('.quick-result-status')) {
-                        resultDiv.innerHTML = '';
-                    }
-                }, 3000);
-            }
-        }
-
-        /**
-         * 【優化】背景執行實際更新，不阻塞UI
-         */
-        async function performQuickAddBackground(key, data) {
-            try {
-                const normalizedZone = currentZone ? String(currentZone).trim() : '';
-
-                // 執行實際更新
-                await packingApiCall('packingSetLocation', {
-                    key: key,
-                    location: normalizedZone,
-                    sheet: currentPackingSheet
-                });
-
-                // 背景重新載入該頁資料（不阻塞使用者操作）
-                await loadPackingData(currentPage);
-                
-                // 如果目前顯示的是該筆資料所在區域，則閃爍提示該列
-                const rowIndex = packingDataCache.findIndex(item => item.A === key);
-                if (rowIndex !== -1) {
-                    highlightRow(rowIndex);
-                }
-
-            } catch (e) {
-                console.error('背景更新失敗:', e);
-                showToast('⚠️ 背景同步失敗，請手動重新整理', 'warning');
-            }
-        }
-
-        /**
-         * 高亮顯示特定列（新增動畫效果）
-         */
-        function highlightRow(index) {
-            const tbody = document.getElementById('excelTableBody');
-            const rows = tbody.querySelectorAll('tr');
-            if (rows[index]) {
-                rows[index].style.animation = 'highlightRow 2s ease';
-                setTimeout(() => {
-                    rows[index].style.animation = '';
-                }, 2000);
-            }
-        }
-
-        // 添加高亮動畫樣式
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes highlightRow {
-                0% { background-color: #fff3cd; }
-                100% { background-color: transparent; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        /**
-         * 新增位置 - 強制重新整理側邊欄
-         */
-        function showAddZoneModal() {
-            const content = `
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">位置名稱</label>
-                    <input type="text" id="newZoneInput" placeholder="例如：A區-1號箱" style="width: 100%; font-size: 16px;">
-                    <div style="margin-top: 8px; font-size: 13px; color: #888;">新增的位置將儲存到資料庫，即使沒有資料也會保留</div>
-                </div>
-            `;
-
-            showModal('➕ 新增位置', content, async () => {
-                const zoneName = document.getElementById('newZoneInput').value.trim();
-                if (!zoneName) {
-                    showToast('請輸入位置名稱', 'error');
-                    return;
-                }
-
-                await addNewZone(zoneName);
-            });
-
-            setTimeout(() => {
-                const input = document.getElementById('newZoneInput');
-                if (input) input.focus();
-            }, 100);
-        }
-
-        async function addNewZone(zoneName) {
-            try {
-                const result = await packingApiCall('packingSaveZone', {
-                    zoneName: zoneName,
-                    sheet: currentPackingSheet
-                });
-
-                if (!result.success) throw new Error(result.error || '儲存失敗');
-
-                showToast(`✅ 位置「${zoneName}」已新增`, 'success');
-                closeModal();
-                
-                // 強制重新載入區域列表，確保新位置顯示
-                await refreshZoneList();
-            } catch (e) {
-                showToast('❌ 新增失敗：' + e.message, 'error');
-            }
-        }
-
-        /**
-         * 專門用於重新載入區域列表的函數
-         */
-        async function refreshZoneList() {
-            try {
-                // 強制重新載入區域資料
-                const zonesResult = await packingApiCall('packingGetZones', { 
-                    sheet: currentPackingSheet 
-                });
-                
-                if (zonesResult.success) {
-                    updateSidebarStats(zonesResult);
-                    updateZoneList(zonesResult.zones || [], zonesResult.unclassified || 0);
-                    
-                    // 如果是全部資料檢視，也更新總覽統計
-                    if (currentZone === 'all') {
-                        await loadPackingSummary();
-                    }
-                }
-            } catch (e) {
-                console.error('重新整理區域列表失敗:', e);
-            }
-        }
-
-        function showRenameZoneModal(oldName) {
-            const content = `
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">原名稱</label>
-                    <div style="padding: 10px; background: #f5f5f5; border-radius: 6px; color: #666; margin-bottom: 15px;">${escapeHtml(oldName)}</div>
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #555;">新名稱</label>
-                    <input type="text" id="renameZoneInput" placeholder="輸入新名稱..." value="${escapeHtml(oldName)}" style="width: 100%; font-size: 16px;">
-                </div>
-            `;
-
-            showModal('✏️ 修改區域名稱', content, async () => {
-                const newName = document.getElementById('renameZoneInput').value.trim();
-                if (!newName || newName === oldName) {
-                    showToast('名稱未變更', 'info');
-                    return;
-                }
-
-                try {
-                    const result = await packingApiCall('packingRenameZone', {
-                        oldName: oldName,
-                        newName: newName,
-                        sheet: currentPackingSheet
-                    });
-
-                    if (result.success) {
-                        showToast('✅ ' + result.message, 'success');
-                        await loadPackingData(currentPage);
-                        closeModal();
-                    } else {
-                        showToast('❌ ' + result.error, 'error');
-                    }
-                } catch (e) {
-                    showToast('❌ 失敗', 'error');
-                }
-            });
-
-            setTimeout(() => {
-                const input = document.getElementById('renameZoneInput');
-                if (input) {
-                    input.select();
-                    input.focus();
-                }
-            }, 100);
-        }
-
-        async function deleteZone(zoneName) {
-            if (!zoneName) return;
-
-            const trimmedZoneName = zoneName.trim();
-
-            try {
-                // 先取得統計資訊
-                const zonesResult = await packingApiCall('packingGetZones', { sheet: currentPackingSheet });
-                const zoneInfo = zonesResult.zones?.find(z => z.name === trimmedZoneName);
-                const count = zoneInfo ? zoneInfo.count : 0;
-
-                const confirmMsg = count > 0 
-                    ? `確定要刪除位置「${trimmedZoneName}」嗎？\n\n此操作將清空該位置下 ${count} 筆資料的裝箱位置（F欄），資料不會被刪除，僅移除位置標記。\n\n⚠️ 此操作無法復原！`
-                    : `確定要刪除位置「${trimmedZoneName}」嗎？\n\n此位置目前沒有資料。`;
-
-                if (!confirm(confirmMsg)) return;
-
-                showToast(`正在刪除位置「${trimmedZoneName}」...`, 'info');
-
-                const result = await packingApiCall('packingDeleteZone', {
-                    zoneName: trimmedZoneName,
-                    sheet: currentPackingSheet
-                });
-
-                if (result.success) {
-                    showToast(`✅ 位置「${trimmedZoneName}」已刪除，${result.clearedCount || count} 筆資料已清空位置標記`, 'success');
-                    
-                    if (currentZone === trimmedZoneName) {
-                        backToSummary();
-                    } else {
-                        await loadPackingData(currentPage);
-                    }
-                } else {
-                    throw new Error(result.error || '刪除失敗');
-                }
-            } catch (e) {
-                showToast('❌ 刪除失敗：' + e.message, 'error');
-            }
-        }
-
-        function showEditModal(key) {
-            const item = packingDataCache.find(i => i.A === key);
-            if (!item) return;
-
-            let inputsHtml = '';
-            columnHeaders.forEach((header, index) => {
-                const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
-                const value = item[colKey] || '';
-                const isF = index === 5;
-                
-                inputsHtml += `
-                    <div style="${isF ? 'background: #fff3cd; padding: 10px; border-radius: 6px; border: 1px solid #ffc107; margin-bottom: 10px;' : 'margin-bottom: 10px;'}">
-                        <label style="font-size: 12px; color: ${isF ? '#856404' : '#888'}; display: block; margin-bottom: 4px; ${isF ? 'font-weight: 600;' : ''}">
-                            ${escapeHtml(header)} ${isF ? '(位置)' : ''}
-                        </label>
-                        <input type="text" id="edit_${colKey}" value="${escapeHtml(value)}" style="width: 100%; ${isF ? 'border-color: #ffc107;' : ''}">
-                    </div>
-                `;
-            });
-
-            const content = `
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <div style="padding: 10px; background: #f0f4ff; border-radius: 6px; border-left: 4px solid #667eea; margin-bottom: 5px;">
-                        <label style="font-size: 12px; color: #666; display: block; margin-bottom: 4px;">Key (A欄)</label>
-                        <div style="font-weight: 600; color: #333; font-size: 16px;">${escapeHtml(item.A)}</div>
-                    </div>
-                    ${inputsHtml}
-                </div>
-            `;
-
-            showModal('✏️ 編輯資料', content, async () => {
-                try {
-                    // 收集所有欄位值
-                    const newValues = {};
-                    ['A','B','C','D','E','F'].forEach(col => {
-                        newValues[col] = document.getElementById(`edit_${col}`).value;
-                    });
-
-                    // 呼叫更新（這裡需要後端支援更新多欄位，目前只更新F欄作為示例）
-                    await packingApiCall('packingSetLocation', {
-                        key: key,
-                        location: newValues.F,
-                        sheet: currentPackingSheet
-                    });
-
-                    showToast('✅ 資料已更新', 'success');
-                    await loadPackingData(currentPage);
-                    closeModal();
-                } catch (e) {
-                    showToast('❌ 更新失敗', 'error');
-                }
-            });
-        }
-
-        async function deleteLocation(key) {
-            if (!confirm('確定要清除「' + key + '」的位置標記嗎？')) return;
-
-            try {
-                await packingApiCall('packingSetLocation', {
-                    key: key,
-                    location: '',
-                    sheet: currentPackingSheet
-                });
-
-                showToast('✅ 已清除位置標記', 'success');
-                await loadPackingData(currentPage);
-            } catch (e) {
-                showToast('❌ 失敗', 'error');
-            }
-        }
-
-        async function clearPackingLocations() {
-            if (!confirm('確定要清除全部裝箱位置嗎？\n\n此操作將清空所有資料的 F 欄（位置欄位），資料本身不會被刪除。\n\n⚠️ 此操作無法復原！')) return;
-
-            try {
-                const result = await packingApiCall('packingClearLocations', { sheet: currentPackingSheet });
-                if (result.success) {
-                    showToast('✅ ' + result.message, 'success');
-                    recentlyAddedKeys = []; // 清空最近加入列表
-                    await loadPackingData(1);
-                } else {
-                    showToast('❌ ' + result.error, 'error');
-                }
-            } catch (e) {
-                showToast('❌ 失敗', 'error');
-            }
-        }
-
-        /**
-         * 清空功能 - 完全清空所有內容（不重建標題）
-         */
-        async function clearPackingAll() {
-            const confirmMsg = currentPackingSheet === 'PackBox' 
-                ? '⚠️ 確定要清除 PACKBOX 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！'
-                : '⚠️ 確定要清除 PACKBOXSPARE 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！';
-
-            if (!confirm(confirmMsg)) return;
-
-            try {
-                showToast('正在清空資料...', 'info');
-
-                // 不再傳遞 includeHeader 參數，完全清空
-                const result = await packingApiCall('packingClearAll', { 
-                    sheet: currentPackingSheet
-                });
-                
-                if (result.success) {
-                    showToast(result.message, 'success');
-                    recentlyAddedKeys = []; // 清空最近加入列表
-                    // 清空後重新載入資料（應該是空的）
-                    await loadPackingData();
-                } else {
-                    throw new Error(result.error);
-                }
-            } catch (error) {
-                showToast('清空失敗: ' + error.message, 'error');
-                console.error('清空錯誤:', error);
-            }
-        }
-
-        //================ Excel 上傳與匯出功能 =================
-        function showUploadModal() {
-            if (isUploading) {
-                showToast('⚠️ 正在上傳中，請等待完成或中斷', 'warning');
-                return;
-            }
-
-            selectedModalFile = null;
-            document.getElementById('modalFileInput').value = '';
-            document.getElementById('uploadFileInfo').style.display = 'none';
-            document.getElementById('selectedFileName').textContent = '';
-
-            document.getElementById('uploadProgressContainer').classList.remove('active');
-            document.getElementById('uploadProgressBar').style.width = '0%';
-            document.getElementById('uploadProgressBar').textContent = '0%';
-
-            document.getElementById('uploadStatusText').classList.remove('active');
-            document.getElementById('uploadStatusText').textContent = '';
-
-            document.getElementById('modalUploadBtn').disabled = true;
-            document.getElementById('modalUploadBtn').style.display = 'block';
-            document.getElementById('modalUploadBtn').innerHTML = '🚀 開始上傳';
-            document.getElementById('cancelUploadBtn').style.display = 'none';
-            document.getElementById('closeUploadModalBtn').style.display = 'block';
-
-            document.getElementById('uploadModalStatus').style.display = 'none';
-            document.getElementById('uploadModalTitle').textContent = `📤 上傳 Excel 到 ${currentPackingSheet}`;
-
-            const uploadArea = document.getElementById('modalUploadArea');
-            uploadArea.className = 'upload-area';
-            if (currentPackingSheet === 'PACKBOXSPARE') uploadArea.classList.add('spare-mode');
-            uploadArea.innerHTML = `
-                <div class="upload-icon">📁</div>
-                <div style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">點擊選擇 Excel 檔案</div>
-                <div class="upload-hint" style="font-size: 13px; color: #888; line-height: 1.6;">
-                    支援格式：.xlsx, .xls<br>
-                    A-F欄位對應：A=Key, B-E=資料, F=位置（可留空）<br>
-                    檔案大小限制：5MB
-                </div>
-            `;
-
-            const uploadBtn = document.getElementById('modalUploadBtn');
-            if (currentPackingSheet === 'PACKBOXSPARE') {
-                uploadBtn.className = 'btn-spare';
-                document.getElementById('uploadProgressBar').classList.add('spare');
-            } else {
-                uploadBtn.className = 'btn-primary';
-                document.getElementById('uploadProgressBar').classList.remove('spare');
-            }
-
-            document.getElementById('modalFileInput').accept = '.xlsx,.xls';
-
-            document.getElementById('uploadModalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeUploadModal(e) {
-            if (isUploading && e && e.target === document.getElementById('uploadModalOverlay')) {
-                showToast('⚠️ 請先中斷上傳再關閉', 'warning');
-                return;
-            }
-            if (e && e.target !== document.getElementById('uploadModalOverlay') && 
-                e.target !== document.getElementById('closeUploadModalBtn')) return;
-
-            document.getElementById('uploadModalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function handleModalFileSelect(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const validExts = ['.xlsx', '.xls'];
-            const fileExt = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
-            
-            if (!validExts.includes(fileExt)) {
-                showUploadModalStatus('❌ 請選擇 Excel 檔案 (.xlsx 或 .xls)', 'error');
-                return;
-            }
-
-            if (file.size > 5 * 1024 * 1024) {
-                showUploadModalStatus('❌ 檔案大小超過 5MB 限制', 'error');
-                return;
-            }
-
-            selectedModalFile = file;
-            document.getElementById('selectedFileName').textContent = file.name;
-            document.getElementById('uploadFileInfo').style.display = 'block';
-            document.getElementById('modalUploadBtn').disabled = false;
-
-            const uploadArea = document.getElementById('modalUploadArea');
-            uploadArea.classList.add('has-file');
-            uploadArea.innerHTML = `
-                <div class="upload-icon">✅</div>
-                <div style="font-weight: 600; font-size: 18px; margin-bottom: 5px;">${escapeHtml(file.name)}</div>
-                <div style="color: #28a745; font-size: 14px; font-weight: 500;">
-                    檔案大小：${(file.size / 1024).toFixed(1)} KB<br>
-                    點擊重新選擇
-                </div>
-            `;
-
-            showUploadModalStatus('✅ 檔案已選擇，請點擊「開始上傳」', 'success');
-        }
-
-        function showUploadModalStatus(message, type) {
-            const bar = document.getElementById('uploadModalStatus');
-            bar.className = 'status-bar ' + type;
-            bar.innerHTML = message;
-            bar.style.display = 'block';
-
-            if (type === 'success') {
-                setTimeout(() => {
-                    bar.style.display = 'none';
-                }, 3000);
-            }
-        }
-
-        function updateProgress(percent, statusText) {
-            const progressBar = document.getElementById('uploadProgressBar');
-            const progressContainer = document.getElementById('uploadProgressContainer');
-            const statusTextEl = document.getElementById('uploadStatusText');
-
-            progressContainer.classList.add('active');
-            statusTextEl.classList.add('active');
-            progressBar.style.width = percent + '%';
-            progressBar.textContent = percent + '%';
-            if (statusText) statusTextEl.textContent = statusText;
-        }
-
-        function cancelUpload() {
-            if (currentUploadController) {
-                currentUploadController.aborted = true;
-            }
-            isUploading = false;
-
-            document.getElementById('cancelUploadBtn').style.display = 'none';
-            document.getElementById('closeUploadModalBtn').style.display = 'block';
-            document.getElementById('modalUploadBtn').style.display = 'block';
-            document.getElementById('modalUploadBtn').disabled = false;
-            document.getElementById('modalUploadBtn').innerHTML = '🚀 開始上傳';
-
-            updateProgress(0, '已中斷');
-            showUploadModalStatus('⛔ 上傳已中斷', 'error');
-            showToast('上傳已中斷', 'info');
-        }
-
-        /**
-         * 分批上傳核心函數（已優化不強制開啟F欄）
-         */
-        async function confirmModalUpload() {
-            if (!selectedModalFile || isUploading) return;
-
-            isUploading = true;
-            currentUploadController = { aborted: false };
-
-            document.getElementById('cancelUploadBtn').style.display = 'block';
-            document.getElementById('closeUploadModalBtn').style.display = 'none';
-
-            const btn = document.getElementById('modalUploadBtn');
-            btn.disabled = true;
-
-            try {
-                updateProgress(5, '讀取Excel檔案...');
-                const data = await new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = (e) => resolve(e.target.result);
-                    reader.onerror = reject;
-                    reader.readAsArrayBuffer(selectedModalFile);
-                });
-
-                updateProgress(10, '解析Excel資料...');
-                const workbook = XLSX.read(new Uint8Array(data), { type: 'array' });
-                const firstSheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[firstSheetName];
-                const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: '' });
-
-                // 過濾有效資料（確保A欄有值）
-                const validData = jsonData.filter(row => row[0] && String(row[0]).trim() !== '');
-                if (validData.length === 0) {
-                    throw new Error('Excel中沒有有效資料（請確保A欄有Key值）');
-                }
-
-                // 標準化資料：確保每筆都是6欄（A-F），F欄保持原值（不強制開啟）
-                const normalizedData = validData.map(row => {
-                    const newRow = new Array(6).fill('');
-                    for (let i = 0; i < Math.min(row.length, 6); i++) {
-                        newRow[i] = row[i] ? String(row[i]).trim() : '';
-                    }
-                    // 注意：不再自動填充F欄，保持Excel中的原始值或空白
-                    return newRow;
-                });
-
-                const totalRecords = normalizedData.length;
-                
-                // 分批處理設定
-                const BATCH_SIZE = UPLOAD_BATCH_SIZE;
-                const totalBatches = Math.ceil(totalRecords / BATCH_SIZE);
-                let totalUpdated = 0;
-                let totalInserted = 0;
-                let totalProcessed = 0;
-                let failedBatches = [];
-                let currentBatch = 0;
-
-                // 序列處理每一批
-                for (let i = 0; i < totalRecords; i += BATCH_SIZE) {
-                    if (currentUploadController.aborted) {
-                        throw new Error('使用者中斷');
-                    }
-
-                    currentBatch++;
-                    const batchData = normalizedData.slice(i, i + BATCH_SIZE);
-                    const progressPercent = 10 + Math.floor((currentBatch / totalBatches) * 85);
-                    
-                    updateProgress(progressPercent, `上傳第 ${currentBatch}/${totalBatches} 批 (${batchData.length} 筆)...`);
-                    btn.innerHTML = `<span style="display: inline-block; width: 18px; height: 18px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 6px;"></span>第 ${currentBatch}/${totalBatches} 批...`;
-
-                    try {
-                        const result = await packingApiCall('packingUploadData', {
-                            data: JSON.stringify(batchData),
-                            sheet: currentPackingSheet
-                        }, 60000);
-
-                        if (result.success) {
-                            totalUpdated += (result.updated || 0);
-                            totalInserted += (result.inserted || 0);
-                            totalProcessed += (result.processed || batchData.length);
-                        } else {
-                            failedBatches.push({ batch: currentBatch, error: result.error || '未知錯誤' });
-                            console.error(`批次 ${currentBatch} 失敗:`, result.error);
-                        }
-                    } catch (e) {
-                        failedBatches.push({ batch: currentBatch, error: e.message });
-                        console.error(`批次 ${currentBatch} 錯誤:`, e);
-                    }
-
-                    // 批次間延遲
-                    if (i + BATCH_SIZE < totalRecords) {
-                        await new Promise(resolve => setTimeout(resolve, 500));
-                    }
-                }
-
-                updateProgress(100, '完成！');
-
-                if (failedBatches.length > 0) {
-                    const errorDetails = failedBatches.map(f => `第${f.batch}批: ${f.error.substring(0, 30)}`).join('<br>');
-                    showUploadModalStatus(
-                        `⚠️ 部分批次失敗<br>成功: ${totalProcessed}/${totalRecords} 筆<br>更新: ${totalUpdated} | 新增: ${totalInserted}<br>失敗: ${failedBatches.length} 批<br><small>${errorDetails}</small>`, 
-                        'warning'
-                    );
-                } else {
-                    showUploadModalStatus(
-                        `✅ 全部上傳成功！<br>總筆數: ${totalRecords}<br>更新: ${totalUpdated} 筆 | 新增: ${totalInserted} 筆`, 
-                        'success'
-                    );
-                }
-
-                setTimeout(() => {
-                    closeUploadModal();
-                    loadPackingData(1); // 重新載入第一頁
-                }, 2500);
-
-            } catch (e) {
-                if (e.message === '使用者中斷') {
-                    updateProgress(0, '已中斷');
-                    showUploadModalStatus('⛔ 上傳已由使用者中斷', 'error');
-                } else {
-                    updateProgress(0, '上傳失敗');
-                    showUploadModalStatus('❌ ' + e.message, 'error');
-                }
-            } finally {
-                isUploading = false;
-                currentUploadController = null;
-                btn.disabled = false;
-                btn.innerHTML = '🚀 開始上傳';
-                document.getElementById('cancelUploadBtn').style.display = 'none';
-                document.getElementById('closeUploadModalBtn').style.display = 'block';
-            }
-        }
-
-        /**
-         * Excel 匯出 - 修正 Base64 解碼方式，確保檔案正確下載
-         */
-        async function exportPackingExcel() {
-            const btn = event.target;
-            const originalText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = '⏳ 匯出中...';
-
-            try {
-                const result = await packingApiCall('packingExportExcel', {
-                    sheet: currentPackingSheet
-                });
-
-                if (result.success && result.data) {
-                    // 使用更安全的 Base64 解碼方式處理二進位檔案
-                    const base64 = result.data;
-                    
-                    // 將 base64 轉換為 Uint8Array（處理二進位資料的正確方式）
-                    const byteCharacters = atob(base64);
-                    const byteArray = new Uint8Array(byteCharacters.length);
-                    for (let i = 0; i < byteCharacters.length; i++) {
-                        byteArray[i] = byteCharacters.charCodeAt(i);
-                    }
-                    
-                    // 建立 Blob（指定正確的 MIME 類型）
-                    const blob = new Blob([byteArray], { 
-                        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
-                    });
-                    
-                    // 建立下載連結
-                    const link = document.createElement('a');
-                    const url = URL.createObjectURL(blob);
-                    link.href = url;
-                    link.download = result.filename || `${currentPackingSheet}_${new Date().toISOString().slice(0,10)}.xlsx`;
-                    
-                    // 觸發下載
-                    document.body.appendChild(link);
-                    link.click();
-                    
-                    // 延遲釋放 URL 物件，確保下載完成
-                    setTimeout(() => {
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(url);
-                    }, 100);
-                    
-                    showToast('✅ Excel匯出成功', 'success');
-                } else {
-                    throw new Error(result.error || '匯出失敗');
-                }
-            } catch (e) {
-                showToast('❌ 匯出失敗：' + e.message, 'error');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-            }
-        }
-
-        //================ Modal 通用功能 =================
-        function showModal(title, content, callback) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalContent').innerHTML = content;
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-
-            const confirmBtn = document.getElementById('modalConfirmBtn');
-            if (currentPackingSheet === 'PACKBOXSPARE') {
-                confirmBtn.className = 'btn-spare';
-            } else {
-                confirmBtn.className = 'btn-primary';
-            }
-
-            modalCallback = callback;
-        }
-
-        function closeModal(e) {
-            if (e && e.target !== document.getElementById('modalOverlay')) return;
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-            modalCallback = null;
-        }
-
-        function modalConfirm() {
-            if (modalCallback) modalCallback();
-        }
-
-        //================ 輔助功能 =================
-        function showToast(message, type = 'info') {
-            const existingToast = document.querySelector('.temp-toast');
-            if (existingToast) existingToast.remove();
-
-            const toast = document.createElement('div');
-            toast.className = 'temp-toast status-bar ' + type;
-            toast.textContent = message;
-            toast.style.cssText = `
-                position: fixed;
-                top: 80px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 9999;
-                max-width: 90%;
-                min-width: 300px;
-                text-align: center;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            `;
-
-            document.body.appendChild(toast);
-
-            if (type === 'success' || type === 'info') {
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    toast.style.transform = 'translateX(-50%) translateY(-20px)';
-                    toast.style.transition = 'all 0.3s ease';
-                    setTimeout(() => toast.remove(), 300);
-                }, 3000);
-            }
-        }
-
-        function escapeHtml(text) {
-            if (!text) return '';
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (isUploading) {
-                    if (confirm('正在上傳中，是否中斷？')) {
-                        cancelUpload();
-                    }
-                    return;
-                }
-                closeModal();
-                closeUploadModal();
+        function toggleMobileManualModal() {
+            const modal = document.getElementById('mobileManualModal');
+            const btn = document.getElementById('mobileManualBtn');
+
+            if (modal.classList.contains('active')) {
                 closeMobileManualModal();
+            } else {
+                modal.classList.add('active');
+                btn.classList.add('active');
+                renderMobileManualList();
+                setTimeout(() => {
+                    document.getElementById('mobileNewManualItem')?.focus();
+                }, 100);
             }
-        });
+        }
+
+        function closeMobileManualModal(e) {
+            if (e && e.target !== document.getElementById('mobileManualModal')) return;
+
+            document.getElementById('mobileManualModal').classList.remove('active');
+            document.getElementById('mobileManualBtn').classList.remove('active');
+        }
+
+        function renderMobileManualList() {
+            const listDiv = document.getElementById('mobileManualList');
+
+            if (manualSelectData.length === 0) {
+                listDiv.innerHTML = '<div class="empty-list" style="text-align: center; padding: 20px; color: #9e9e9e;">暫無項目<br>在下方輸入添加</div>';
+            } else {
+                let html = '';
+                manualSelectData.forEach((item, index) => {
+                    html += `
+                        <div class="manual-item" style="background: white; margin-bottom: 5px; border-radius: 8px;">
+                            <span class="manual-item-text" onclick="useMobileManualItem('${escapeHtml(item)}')">${escapeHtml(item)}</span>
+                            <span class="manual-item-remove" onclick="removeMobileManualItem('${escapeHtml(item)}', ${index})">×</span>
+                        </div>
+                    `;
+                });
+                listDiv.innerHTML = html;
+            }
+        }
+
+        async function addMobileManualItem() {
+            const input = document.getElementById('mobileNewManualItem');
+            const value = input.value.trim();
+            if (!value) return;
+
+            if (!manualSelectData.includes(value)) {
+                manualSelectData.push(value);
+                renderManualList();
+                renderMobileManualList();
+                input.value = '';
+            }
+
+            try {
+                await libraryApiCall('addToManualSelect', { value: value });
+            } catch (e) {
+                console.error('背景同步失敗:', e);
+            }
+        }
+
+        async function removeMobileManualItem(value, index) {
+            manualSelectData.splice(index, 1);
+            renderManualList();
+            renderMobileManualList();
+
+            try {
+                await libraryApiCall('removeFromManualSelect', { value: value });
+            } catch (e) {
+                console.error('背景同步失敗:', e);
+            }
+        }
+
+        async function removeMobileLastManual() {
+            if (manualSelectData.length === 0) return;
+            const lastItem = manualSelectData[manualSelectData.length - 1];
+
+            manualSelectData.pop();
+            renderManualList();
+            renderMobileManualList();
+
+            try {
+                await libraryApiCall('removeFromManualSelect', { value: lastItem });
+            } catch (e) {
+                console.error('背景同步失敗:', e);
+            }
+        }
+
+        async function clearMobileManualSelect() {
+            if (!confirm('確定清空全部 Manual Select 項目？')) return;
+
+            manualSelectData = [];
+            renderManualList();
+            renderMobileManualList();
+
+            try {
+                await libraryApiCall('clearManualSelect');
+            } catch (e) {
+                console.error('清空失敗:', e);
+            }
+        }
+
+        function useMobileManualItem(value) {
+            if (currentPanel === 'search') {
+                document.getElementById('searchInput').value = value;
+                closeMobileManualModal();
+                searchBook();
+            } else if (currentPanel === 'location') {
+                document.getElementById('locationInput').value = value;
+                closeMobileManualModal();
+                searchLocation();
+            }
+        }
+
+        function exportMobileManualSelect() {
+            exportManualSelect();
+        }
+
+        function preloadAllData() {
+            console.log('系統已就緒');
+        }
     </script>
 </body>
 </html>
