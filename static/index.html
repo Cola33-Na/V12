@@ -930,7 +930,7 @@
             border-bottom-color: #c3e6cb;
         }
 
-        /* 【新增】二維統計表格樣式 */
+        /* 【修改】二維統計表格樣式 - 橙色方格標題 */
         .stats-table-container {
             overflow-x: auto;
             border-radius: 8px;
@@ -941,7 +941,8 @@
 
         .stats-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             font-size: 14px;
         }
 
@@ -957,6 +958,15 @@
 
         .spare-mode .stats-table thead th {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        /* 【新增】橙色方格標題樣式 */
+        .stats-table thead th.orange-header {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%) !important;
+            color: white;
+            border: 2px solid #e65100;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 4px rgba(255, 152, 0, 0.3);
         }
 
         .stats-table tbody td {
@@ -1003,21 +1013,7 @@
             margin-top: 2px;
         }
 
-        /* 【新增】統計表格標題雙欄顯示（對應橙色方格格式） */
-        .stats-table thead th .header-col-id {
-            font-size: 13px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .stats-table thead th .header-col-name {
-            font-size: 11px;
-            opacity: 0.95;
-            display: block;
-        }
-
-        /* 自定義分類樣式 */
+        /* 自定義分類樣式 - 已移到編輯標題內，保留樣式供Modal內使用 */
         .custom-category-section {
             margin-top: 20px;
             border-top: 2px dashed #ddd;
@@ -1026,7 +1022,7 @@
 
         .custom-category-section h4 {
             font-size: 14px;
-            color: #666;
+            color: #e65100;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -1035,61 +1031,55 @@
 
         .custom-category-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 10px;
         }
 
         .custom-category-item {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
+            background: #fff3e0;
+            border: 2px solid #ff9800;
             border-radius: 8px;
-            padding: 10px;
+            padding: 12px;
             transition: all 0.3s;
         }
 
         .custom-category-item:hover {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        .spare-mode .custom-category-item:hover {
-            border-color: #11998e;
-            background: #e8f5e9;
+            border-color: #e65100;
+            background: #ffe0b2;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.2);
         }
 
         .custom-category-header {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             margin-bottom: 8px;
         }
 
         .custom-category-header select {
             flex: 1;
-            padding: 4px 8px;
-            font-size: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            min-width: 50px;
+            padding: 6px 10px;
+            font-size: 13px;
+            border: 2px solid #ff9800;
+            border-radius: 6px;
+            min-width: 60px;
+            background: white;
         }
 
         .custom-category-header input {
             flex: 2;
-            padding: 4px 8px;
-            font-size: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 6px 10px;
+            font-size: 13px;
+            border: 2px solid #ff9800;
+            border-radius: 6px;
         }
 
         .custom-category-count {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
-            color: #667eea;
+            color: #e65100;
             text-align: right;
-        }
-
-        .spare-mode .custom-category-count {
-            color: #11998e;
         }
 
         /* Excel 風格資料表格 */
@@ -1755,9 +1745,9 @@
             to { transform: translateX(-50%) translateY(0); opacity: 1; }
         }
 
-        /* 【新增】編輯標題 Modal 樣式 */
+        /* 【新增】編輯標題 Modal 樣式 - 擴展以容納自定義分類 */
         .header-edit-modal .modal {
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .header-edit-grid {
@@ -1789,6 +1779,39 @@
         .header-edit-item input:focus {
             border-color: #667eea;
             outline: none;
+        }
+
+        /* 自定義分類在Modal內的樣式 */
+        .modal-custom-categories {
+            margin-top: 20px;
+            border-top: 3px dashed #ff9800;
+            padding-top: 20px;
+        }
+
+        .modal-custom-categories h4 {
+            color: #e65100;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-custom-categories .custom-category-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .modal-custom-categories .custom-category-item {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .modal-custom-categories .custom-category-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 152, 0, 0.25);
         }
 
         /* 響應式設計 */
@@ -1922,14 +1945,19 @@
                 font-size: 12px;
             }
 
-            /* 自定義分類響應式 */
-            .custom-category-grid {
+            .stats-table thead th.orange-header {
+                font-size: 12px;
+                padding: 8px 4px;
+            }
+
+            /* 編輯標題響應式 */
+            .header-edit-grid {
                 grid-template-columns: 1fr;
             }
 
-            /* 【新增】編輯標題響應式 */
-            .header-edit-grid {
-                grid-template-columns: 1fr;
+            .header-edit-modal .modal {
+                max-width: 95%;
+                padding: 20px;
             }
         }
 
@@ -1968,6 +1996,10 @@
                 bottom: 20px;
                 right: 20px;
                 font-size: 20px;
+            }
+
+            .stats-table thead th.orange-header {
+                font-size: 11px;
             }
         }
 
@@ -2253,7 +2285,7 @@
                                 <button class="title-btn title-btn-secondary" onclick="exportPackingExcel()">
                                     📥 匯出Excel
                                 </button>
-                                <!-- 【新增】編輯標題按鈕 -->
+                                <!-- 【修改】編輯標題按鈕 - 現在同時包含自定義分類設定 -->
                                 <button class="title-btn title-btn-secondary" onclick="showEditHeadersModal()">
                                     ✏️ 編輯標題
                                 </button>
@@ -2299,39 +2331,14 @@
                                         <div class="summary-card">
                                             <h3>📊 各區數量統計</h3>
                                             
-                                            <!-- 【修改】二維統計表格 - 標題列改為雙欄顯示對應橙色方格格式 -->
+                                            <!-- 【修改】二維統計表格 - 標題改為橙色方格 -->
                                             <div class="stats-table-container">
                                                 <table class="stats-table" id="zoneStatsTable">
                                                     <thead>
                                                         <tr id="statsTableHeaderRow">
-                                                            <th>
-                                                                <span class="header-col-id">A欄</span>
-                                                                <span class="header-col-name">(Barcode)</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="header-col-id">Quantity</span>
-                                                                <span class="header-col-name">總數量</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="header-col-id" id="headerColB1">C1</span>
-                                                                <span class="header-col-name" id="headerNameB1">中文</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="header-col-id" id="headerColB2">C1</span>
-                                                                <span class="header-col-name" id="headerNameB2">English</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="header-col-id" id="headerColC1">C1</span>
-                                                                <span class="header-col-name" id="headerNameC1">LastCopy</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="header-col-id" id="headerColD1">D1</span>
-                                                                <span class="header-col-name" id="headerNameD1">Donation</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="header-col-id" id="headerColE1">E1</span>
-                                                                <span class="header-col-name" id="headerNameE1">Other</span>
-                                                            </th>
+                                                            <th>A欄 (位置)</th>
+                                                            <th>Quantity<br><span class="stats-table-header-note">總數量</span></th>
+                                                            <!-- 動態生成5個橙色方格標題 -->
                                                         </tr>
                                                     </thead>
                                                     <tbody id="zoneStatsTableBody">
@@ -2344,16 +2351,7 @@
                                                 </table>
                                             </div>
                                             
-                                            <!-- 自定義分類統計區域 -->
-                                            <div class="custom-category-section">
-                                                <h4>📋 自定義分類統計 (對應表格欄位)</h4>
-                                                <div id="customCategoryList" class="custom-category-grid">
-                                                    <!-- 動態生成8個自定義分類 -->
-                                                </div>
-                                                <button class="btn-sm btn-secondary" onclick="saveCustomCategories()" style="margin-top: 10px; width: 100%;">
-                                                    💾 儲存分類設定
-                                                </button>
-                                            </div>
+                                            <!-- 【刪除】自定義分類統計區域已移到編輯標題Modal內 -->
                                         </div>
                                     </div>
                                 </div>
@@ -2464,10 +2462,10 @@
         </div>
     </div>
 
-    <!-- 【新增】編輯標題 Modal -->
+    <!-- 【修改】編輯標題 Modal - 擴展以包含5個自定義分類設定 -->
     <div class="modal-overlay header-edit-modal" id="headerEditModalOverlay" onclick="closeHeaderEditModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h3>✏️ 編輯欄位標題</h3>
+            <h3>✏️ 編輯欄位標題與統計分類</h3>
             <div id="headerEditContent">
                 <div class="header-edit-grid">
                     <div class="header-edit-item">
@@ -2495,13 +2493,25 @@
                         <input type="text" id="headerInputF" placeholder="例如：Other">
                     </div>
                 </div>
-                <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; font-size: 13px; color: #1976d2; margin-top: 10px;">
-                    💡 提示：修改標題只會影響顯示名稱，不會影響實際資料。參考圖表1格式設定。
+                
+                <!-- 【新增】5個自定義分類統計設定 -->
+                <div class="modal-custom-categories">
+                    <h4>📊 自定義統計分類設定 (5個欄位)</h4>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 15px; background: #fff3cd; padding: 10px; border-radius: 6px; border-left: 4px solid #ff9800;">
+                        💡 設定各區統計表格的5個分類欄位。系統會統計每個位置(F欄)下，指定欄位等於指定值的數量。
+                    </div>
+                    <div id="headerEditCustomCategories" class="custom-category-grid">
+                        <!-- 動態生成5個自定義分類設定 -->
+                    </div>
+                </div>
+                
+                <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; font-size: 13px; color: #1976d2; margin-top: 20px;">
+                    💡 提示：修改標題只會影響顯示名稱，不會影響實際資料。統計分類設定會影響「各區數量統計」表格的列顯示。
                 </div>
             </div>
             <div class="modal-actions">
                 <button class="btn-secondary" onclick="closeHeaderEditModal()">取消</button>
-                <button class="btn-primary" onclick="saveHeaders()">💾 儲存標題</button>
+                <button class="btn-primary" onclick="saveHeadersAndCategories()">💾 儲存設定</button>
             </div>
         </div>
     </div>
@@ -2573,16 +2583,13 @@
         let totalRecords = 0;
         let columnHeaders = ['A', 'B', 'C', 'D', 'E', 'F'];
         
-        // 新增：自定義分類設定（預設8個）- 對應橙色方格格式
+        // 【修改】自定義分類設定 - 減少到5個，預設對應統計表格的5列
         let customCategories = [
-            { id: 1, column: 'B', value: '中文', label: '中文', colId: 'C1', enabled: true },
-            { id: 2, column: 'B', value: 'English', label: 'English', colId: 'C1', enabled: true },
-            { id: 3, column: 'C', value: 'LastCopy', label: 'LastCopy', colId: 'C1', enabled: true },
-            { id: 4, column: 'D', value: 'Donation', label: 'Donation', colId: 'D1', enabled: true },
-            { id: 5, column: 'E', value: 'Other', label: 'Other', colId: 'E1', enabled: true },
-            { id: 6, column: 'B', value: '', label: '自定義6', colId: 'C1', enabled: false },
-            { id: 7, column: 'C', value: '', label: '自定義7', colId: 'C1', enabled: false },
-            { id: 8, column: 'D', value: '', label: '自定義8', colId: 'D1', enabled: false }
+            { id: 1, column: 'B', value: '中文', label: '中文', enabled: true },
+            { id: 2, column: 'B', value: 'English', label: 'English', enabled: true },
+            { id: 3, column: 'C', value: 'LastCopy', label: 'LastCopy', enabled: true },
+            { id: 4, column: 'D', value: 'Donation', label: 'Donation', enabled: true },
+            { id: 5, column: 'E', value: 'Other', label: 'Other', enabled: true }
         ];
         
         // 新增：最近加入的資料Key（用於高亮顯示在最頂部）
@@ -2789,67 +2796,52 @@
             }
         }
 
-        //================ 自定義分類功能 =================
+        //================ 自定義分類功能（修改為5個並整合到編輯標題） =================
         function loadCustomCategories() {
             const saved = localStorage.getItem('customCategories_' + currentPackingSheet);
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
-                    // 合併儲存的設定，保留預設結構
-                    parsed.forEach((cat, index) => {
-                        if (customCategories[index]) {
-                            customCategories[index] = { ...customCategories[index], ...cat };
-                        }
-                    });
+                    // 確保只有5個分類
+                    if (parsed.length === 5) {
+                        customCategories = parsed;
+                    } else {
+                        // 如果儲存的數量不對，重置為預設5個
+                        resetCustomCategories();
+                    }
                 } catch (e) {
                     console.error('載入自定義分類失敗:', e);
+                    resetCustomCategories();
                 }
+            } else {
+                resetCustomCategories();
             }
-            renderCustomCategories();
-            updateStatsTableHeaders(); // 【新增】更新統計表格標題
         }
         
+        // 【新增】重置為預設5個分類
+        function resetCustomCategories() {
+            customCategories = [
+                { id: 1, column: 'B', value: '中文', label: '中文', enabled: true },
+                { id: 2, column: 'B', value: 'English', label: 'English', enabled: true },
+                { id: 3, column: 'C', value: 'LastCopy', label: 'LastCopy', enabled: true },
+                { id: 4, column: 'D', value: 'Donation', label: 'Donation', enabled: true },
+                { id: 5, column: 'E', value: 'Other', label: 'Other', enabled: true }
+            ];
+        }
+        
+        // 【修改】儲存時同時更新統計表格標題
         function saveCustomCategories() {
             localStorage.setItem('customCategories_' + currentPackingSheet, JSON.stringify(customCategories));
             showToast('✅ 分類設定已儲存', 'success');
-            updateStatsTableHeaders(); // 【新增】更新統計表格標題
-            loadPackingSummary(); // 重新計算統計
+            // 立即更新統計表格標題
+            updateStatsTableHeaders();
+            // 重新載入統計資料
+            loadPackingSummary();
         }
         
-        // 【新增】更新統計表格標題以對應橙色方格格式
-        function updateStatsTableHeaders() {
-            // 更新各欄位標題顯示
-            const enabledCats = customCategories.filter(cat => cat.enabled && cat.value);
-            
-            // 對應到表格的5個分類欄位（Quantity後面的5欄）
-            const headerMappings = [
-                { col: 'B1', defaultCol: 'C1', defaultName: '中文' },
-                { col: 'B2', defaultCol: 'C1', defaultName: 'English' },
-                { col: 'C1', defaultCol: 'C1', defaultName: 'LastCopy' },
-                { col: 'D1', defaultCol: 'D1', defaultName: 'Donation' },
-                { col: 'E1', defaultCol: 'E1', defaultName: 'Other' }
-            ];
-            
-            headerMappings.forEach((mapping, index) => {
-                const colIdElement = document.getElementById(`headerCol${mapping.col}`);
-                const nameElement = document.getElementById(`headerName${mapping.col}`);
-                
-                if (colIdElement && nameElement) {
-                    if (enabledCats[index]) {
-                        // 使用自定義分類設定
-                        colIdElement.textContent = enabledCats[index].colId || mapping.defaultCol;
-                        nameElement.textContent = enabledCats[index].label || enabledCats[index].value;
-                    } else {
-                        // 使用預設值
-                        colIdElement.textContent = mapping.defaultCol;
-                        nameElement.textContent = mapping.defaultName;
-                    }
-                }
-            });
-        }
-        
-        function renderCustomCategories() {
-            const container = document.getElementById('customCategoryList');
+        // 【修改】渲染函數 - 支援指定容器（用於Modal內）
+        function renderCustomCategories(containerId = 'customCategoryList') {
+            const container = document.getElementById(containerId);
             if (!container) return;
             
             let html = '';
@@ -2866,8 +2858,11 @@
                             <input type="text" placeholder="篩選值" value="${escapeHtml(cat.value)}" 
                                 onchange="updateCustomCategory(${index}, 'value', this.value)"
                                 title="輸入要統計的值">
+                            <input type="text" placeholder="顯示名稱" value="${escapeHtml(cat.label)}" 
+                                onchange="updateCustomCategory(${index}, 'label', this.value)"
+                                title="顯示在表格上的名稱">
                         </div>
-                        <div class="custom-category-count" id="customCatCount_${index}">0 筆</div>
+                        <div style="font-size: 11px; color: #888; margin-top: 4px;">分類 ${index + 1}</div>
                     </div>
                 `;
             });
@@ -2877,35 +2872,34 @@
         function updateCustomCategory(index, field, value) {
             customCategories[index][field] = value;
             customCategories[index].enabled = value.trim() !== '';
-            // 自動分配欄位代碼
-            if (field === 'column') {
-                const colMap = { 'B': 'C1', 'C': 'C1', 'D': 'D1', 'E': 'E1' };
-                customCategories[index].colId = colMap[value] || 'C1';
-            }
         }
         
-        function calculateCustomCategoryStats(data) {
-            // 計算每個自定義分類的統計
+        // 【新增】更新統計表格表頭（應用橙色方格樣式）
+        function updateStatsTableHeaders() {
+            const headerRow = document.getElementById('statsTableHeaderRow');
+            if (!headerRow) return;
+            
+            // 保留前兩個固定欄位（A欄、Quantity）
+            let html = `
+                <th>A欄 (位置)</th>
+                <th>Quantity<br><span class="stats-table-header-note">總數量</span></th>
+            `;
+            
+            // 添加5個自定義分類標題（橙色方格）
             customCategories.forEach((cat, index) => {
-                if (!cat.enabled || !cat.value) {
-                    const el = document.getElementById(`customCatCount_${index}`);
-                    if (el) el.textContent = '-';
-                    return;
+                if (cat.enabled && cat.label) {
+                    html += `
+                        <th class="orange-header">
+                            ${escapeHtml(cat.label)}<br>
+                            <span class="stats-table-header-note">${cat.column}欄="${escapeHtml(cat.value)}"</span>
+                        </th>
+                    `;
+                } else {
+                    html += `<th class="orange-header">分類${index + 1}</th>`;
                 }
-                
-                let count = 0;
-                if (data && Array.isArray(data)) {
-                    data.forEach(row => {
-                        const colValue = row[cat.column] || '';
-                        if (String(colValue).trim() === cat.value) {
-                            count++;
-                        }
-                    });
-                }
-                
-                const el = document.getElementById(`customCatCount_${index}`);
-                if (el) el.textContent = count + ' 筆';
             });
+            
+            headerRow.innerHTML = html;
         }
 
         //================ 手機端 Manual Select 功能 =================
@@ -3732,7 +3726,7 @@
         }
 
         /**
-         * 【新增】顯示編輯標題 Modal
+         * 【修改】顯示編輯標題 Modal - 同時顯示5個自定義分類設定
          */
         function showEditHeadersModal() {
             // 填入當前標題值
@@ -3743,12 +3737,15 @@
             document.getElementById('headerInputE').value = columnHeaders[4] || 'E';
             document.getElementById('headerInputF').value = columnHeaders[5] || 'F';
             
+            // 【新增】渲染5個自定義分類設定到Modal
+            renderCustomCategories('headerEditCustomCategories');
+            
             document.getElementById('headerEditModalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         /**
-         * 【新增】關閉編輯標題 Modal
+         * 【修改】關閉編輯標題 Modal
          */
         function closeHeaderEditModal(e) {
             if (e && e.target !== document.getElementById('headerEditModalOverlay')) return;
@@ -3757,9 +3754,9 @@
         }
 
         /**
-         * 【新增】儲存標題到後端
+         * 【修改】同時儲存標題和自定義分類
          */
-        async function saveHeaders() {
+        async function saveHeadersAndCategories() {
             const newHeaders = [
                 document.getElementById('headerInputA').value || 'A',
                 document.getElementById('headerInputB').value || 'B',
@@ -3770,6 +3767,7 @@
             ];
 
             try {
+                // 儲存標題
                 const result = await packingApiCall('packingUpdateHeaders', {
                     sheet: currentPackingSheet,
                     headers: JSON.stringify(newHeaders)
@@ -3788,7 +3786,10 @@
                     html += '<th>操作</th>';
                     headerRow.innerHTML = html;
                     
-                    showToast('✅ 標題已更新', 'success');
+                    // 【新增】儲存自定義分類並更新統計表格
+                    saveCustomCategories();
+                    
+                    showToast('✅ 標題與分類設定已更新', 'success');
                     closeHeaderEditModal();
                 } else {
                     showToast('❌ 更新失敗：' + result.error, 'error');
@@ -3810,11 +3811,13 @@
                     zone: currentZone === 'all' ? '' : currentZone
                 });
 
-                // 載入統計資料（包含詳細二維統計）
+                // 載入統計資料（傳入自定義分類參數）
+                const categoriesParam = JSON.stringify(customCategories);
                 const [zonesResult, summaryResult] = await Promise.all([
                     packingApiCall('packingGetZones', { sheet: currentPackingSheet }),
                     packingApiCall('packingGetSummary', { 
-                        sheet: currentPackingSheet
+                        sheet: currentPackingSheet,
+                        categories: categoriesParam
                     })
                 ]);
 
@@ -3834,7 +3837,7 @@
                     updateZoneList(zonesResult.zones || [], zonesResult.unclassified || 0);
                 }
 
-                // 【修改】更新總覽統計（使用新的二維統計格式）
+                // 【修改】更新總覽統計（使用自定義分類）
                 if (summaryResult.success && summaryResult.summary) {
                     updateSummaryDisplay(summaryResult.summary);
                 }
@@ -4137,11 +4140,13 @@
         }
 
         /**
-         * 【修改】更新統計顯示 - 改為二維表格格式（Excel範例樣式）
-         * 並確保綠色箭嘴所示數值正確顯示（Trolley_1 位置的中文數量）
+         * 【修改】更新統計顯示 - 使用自定義分類的標題（橙色方格）
          */
         function updateSummaryDisplay(summary) {
             const tbody = document.getElementById('zoneStatsTableBody');
+            
+            // 【新增】更新表頭（橙色方格）
+            updateStatsTableHeaders();
             
             if (!summary.zoneDetails || Object.keys(summary.zoneDetails).length === 0) {
                 tbody.innerHTML = `
@@ -4162,21 +4167,22 @@
             let html = '';
             sortedZones.forEach(([zoneName, stats]) => {
                 const quantityClass = stats.quantity > 0 ? 'quantity-col' : '';
-                const chineseClass = stats.chinese === 0 ? 'zero-value' : '';
-                const englishClass = stats.english === 0 ? 'zero-value' : '';
-                const lastCopyClass = stats.lastCopy === 0 ? 'zero-value' : '';
-                const donationClass = stats.donation === 0 ? 'zero-value' : '';
-                const otherClass = stats.other === 0 ? 'zero-value' : '';
+                
+                // 【修改】動態生成5個分類的統計值（對應自定義分類）
+                let categoryCells = '';
+                customCategories.forEach((cat, index) => {
+                    const keyMap = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5'];
+                    const key = keyMap[index];
+                    const value = stats[key] || 0;
+                    const zeroClass = value === 0 ? 'zero-value' : '';
+                    categoryCells += `<td class="${zeroClass}">${value}</td>`;
+                });
                 
                 html += `
                     <tr>
                         <td class="zone-name-cell">${escapeHtml(zoneName)}</td>
                         <td class="${quantityClass}">${stats.quantity}</td>
-                        <td class="${chineseClass}">${stats.chinese}</td>
-                        <td class="${englishClass}">${stats.english}</td>
-                        <td class="${lastCopyClass}">${stats.lastCopy}</td>
-                        <td class="${donationClass}">${stats.donation}</td>
-                        <td class="${otherClass}">${stats.other}</td>
+                        ${categoryCells}
                     </tr>
                 `;
             });
@@ -4184,91 +4190,43 @@
             // 添加總計列
             const totals = sortedZones.reduce((acc, [_, stats]) => {
                 acc.quantity += stats.quantity;
-                acc.chinese += stats.chinese;
-                acc.english += stats.english;
-                acc.lastCopy += stats.lastCopy;
-                acc.donation += stats.donation;
-                acc.other += stats.other;
+                customCategories.forEach((cat, index) => {
+                    const keyMap = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5'];
+                    const key = keyMap[index];
+                    acc[key] = (acc[key] || 0) + (stats[key] || 0);
+                });
                 return acc;
-            }, { quantity: 0, chinese: 0, english: 0, lastCopy: 0, donation: 0, other: 0 });
+            }, { quantity: 0 });
+
+            let totalCategoryCells = '';
+            customCategories.forEach((cat, index) => {
+                const keyMap = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5'];
+                const key = keyMap[index];
+                totalCategoryCells += `<td>${totals[key] || 0}</td>`;
+            });
 
             html += `
                 <tr style="background: #f0f4ff; font-weight: 700; border-top: 2px solid #667eea;">
                     <td class="zone-name-cell">總計</td>
                     <td class="quantity-col">${totals.quantity}</td>
-                    <td>${totals.chinese}</td>
-                    <td>${totals.english}</td>
-                    <td>${totals.lastCopy}</td>
-                    <td>${totals.donation}</td>
-                    <td>${totals.other}</td>
+                    ${totalCategoryCells}
                 </tr>
             `;
 
             tbody.innerHTML = html;
-            
-            // 【新增】同時更新自定義分類統計數據
-            // 使用當前頁的資料計算（如果是全部資料則使用summary的總計）
-            calculateCustomCategoryStatsFromSummary(summary);
-        }
-        
-        // 【新增】從統計摘要計算自定義分類
-        function calculateCustomCategoryStatsFromSummary(summary) {
-            // 這裡我們使用 zoneDetails 的總計來更新自定義分類顯示
-            // 對應綠色箭嘴所示：Trolley_1 (F欄) 的中文 (C欄) 數量
-            
-            customCategories.forEach((cat, index) => {
-                if (!cat.enabled || !cat.value) {
-                    const el = document.getElementById(`customCatCount_${index}`);
-                    if (el) el.textContent = '-';
-                    return;
-                }
-                
-                let totalCount = 0;
-                
-                // 遍歷所有區域的統計數據
-                if (summary.zoneDetails) {
-                    Object.entries(summary.zoneDetails).forEach(([zoneName, stats]) => {
-                        // 根據欄位和值匹配
-                        if (cat.column === 'B' && cat.value === '中文') {
-                            totalCount += stats.chinese || 0;
-                        } else if (cat.column === 'B' && cat.value === 'English') {
-                            totalCount += stats.english || 0;
-                        } else if (cat.column === 'C' && cat.value === 'LastCopy') {
-                            totalCount += stats.lastCopy || 0;
-                        } else if (cat.column === 'D' && cat.value === 'Donation') {
-                            totalCount += stats.donation || 0;
-                        } else if (cat.column === 'E' && cat.value === 'Other') {
-                            totalCount += stats.other || 0;
-                        }
-                    });
-                }
-                
-                const el = document.getElementById(`customCatCount_${index}`);
-                if (el) el.textContent = totalCount + ' 筆';
-            });
         }
 
         async function loadPackingSummary() {
             try {
-                // 載入統計時同時載入原始資料用於自定義分類計算
-                const [summaryResult, allDataResult] = await Promise.all([
-                    packingApiCall('packingGetSummary', { 
-                        sheet: currentPackingSheet
-                    }),
-                    packingApiCall('packingGetAllData', {
-                        sheet: currentPackingSheet,
-                        page: 1,
-                        zone: ''
-                    })
-                ]);
+                // 【修改】傳入自定義分類參數
+                const categoriesParam = JSON.stringify(customCategories);
+                const summaryResult = await packingApiCall('packingGetSummary', { 
+                    sheet: currentPackingSheet,
+                    categories: categoriesParam
+                });
 
                 if (summaryResult.success && summaryResult.summary) {
                     updateSummaryDisplay(summaryResult.summary);
-                }
-                
-                // 使用全量資料計算自定義分類（取第一頁作為樣本，或需要時載入全部）
-                if (allDataResult.success) {
-                    calculateCustomCategoryStats(allDataResult.data);
                 }
             } catch (e) {
                 console.error('載入 Summary 失敗:', e);
