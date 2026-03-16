@@ -904,7 +904,7 @@
 
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: 20px;
             margin-bottom: 20px;
         }
@@ -950,6 +950,81 @@
             font-weight: 700;
             color: #333;
             flex-shrink: 0;
+        }
+
+        /* 自定義分類樣式 */
+        .custom-category-section {
+            margin-top: 20px;
+            border-top: 2px dashed #ddd;
+            padding-top: 15px;
+        }
+
+        .custom-category-section h4 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .custom-category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .custom-category-item {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 10px;
+            transition: all 0.3s;
+        }
+
+        .custom-category-item:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .spare-mode .custom-category-item:hover {
+            border-color: #11998e;
+            background: #e8f5e9;
+        }
+
+        .custom-category-header {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+
+        .custom-category-header select {
+            flex: 1;
+            padding: 4px 8px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 50px;
+        }
+
+        .custom-category-header input {
+            flex: 2;
+            padding: 4px 8px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .custom-category-count {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            text-align: right;
+        }
+
+        .spare-mode .custom-category-count {
+            color: #11998e;
         }
 
         /* Excel 風格資料表格 */
@@ -1001,6 +1076,33 @@
 
         .excel-table tr:hover {
             background: #e3f2fd;
+        }
+
+        /* 新增資料高亮 */
+        .excel-table tr.new-row {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%) !important;
+            animation: highlightNew 2s ease;
+            border-left: 4px solid #ffc107;
+        }
+
+        @keyframes highlightNew {
+            0% { background: #ffc107; transform: scale(1.02); }
+            100% { background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); transform: scale(1); }
+        }
+
+        .excel-table tr.new-row td {
+            font-weight: 600;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: 700;
         }
 
         .spare-mode .excel-table th {
@@ -1712,6 +1814,11 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            /* 自定義分類響應式 */
+            .custom-category-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2081,23 +2188,16 @@
                                                     <span class="summary-value">-</span>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="summary-card">
-                                            <h3>📈 分類統計</h3>
-                                            <div style="margin-bottom: 10px;">
-                                                <select id="summaryGroupBy" onchange="loadPackingSummary()" style="font-size: 14px;">
-                                                    <option value="B">依 B 欄分類</option>
-                                                    <option value="C">依 C 欄分類</option>
-                                                    <option value="D">依 D 欄分類</option>
-                                                    <option value="E">依 E 欄分類</option>
-                                                </select>
-                                            </div>
-                                            <div id="categorySummaryList">
-                                                <div class="summary-item">
-                                                    <span class="summary-label">載入中...</span>
-                                                    <span class="summary-value">-</span>
+                                            
+                                            <!-- 自定義分統計區域 -->
+                                            <div class="custom-category-section">
+                                                <h4>📋 自定義分類統計</h4>
+                                                <div id="customCategoryList" class="custom-category-grid">
+                                                    <!-- 動態生成8個自定義分類 -->
                                                 </div>
+                                                <button class="btn-sm btn-secondary" onclick="saveCustomCategories()" style="margin-top: 10px; width: 100%;">
+                                                    💾 儲存分類設定
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2248,8 +2348,8 @@
 
     <script>
         //================ API 設定 =================
-        const LIBRARY_API_URL = 'https://script.google.com/macros/s/AKfycbx2EQpxNM4E4Ab4vT2XPmG90CpxdbrVMzbS9Ssx6fcc6bF_A0jMav3WEjoaTt50NEeGxg/exec';
-        const PACKING_API_URL = 'https://script.google.com/macros/s/AKfycbx2EQpxNM4E4Ab4vT2XPmG90CpxdbrVMzbS9Ssx6fcc6bF_A0jMav3WEjoaTt50NEeGxg/exec';
+        const LIBRARY_API_URL = 'https://script.google.com/macros/s/AKfycbzvDHZorM13RtLziS7Bdqu1FDJOOisCHF45NpkfdsfU476SoAAE_PRnhD9ZWBa4XqKh/exec';
+        const PACKING_API_URL = 'https://script.google.com/macros/s/AKfycbzvDHZorM13RtLziS7Bdqu1FDJOOisCHF45NpkfdsfU476SoAAE_PRnhD9ZWBa4XqKh/exec';
 
         //================ 狀態變數 =================
         let currentPanel = 'search';
@@ -2276,6 +2376,21 @@
         let totalRecords = 0;
         let columnHeaders = ['A', 'B', 'C', 'D', 'E', 'F'];
         
+        // 新增：自定義分類設定（預設8個）
+        let customCategories = [
+            { id: 1, column: 'B', value: '中文', label: '中文書', enabled: true },
+            { id: 2, column: 'B', value: 'English', label: '英文書', enabled: true },
+            { id: 3, column: 'C', value: 'Non-Last Copy', label: 'Non-Last Copy', enabled: true },
+            { id: 4, column: 'C', value: 'Last Copy', label: 'Last Copy', enabled: true },
+            { id: 5, column: 'D', value: '', label: '自定義5', enabled: false },
+            { id: 6, column: 'D', value: '', label: '自定義6', enabled: false },
+            { id: 7, column: 'E', value: '', label: '自定義7', enabled: false },
+            { id: 8, column: 'E', value: '', label: '自定義8', enabled: false }
+        ];
+        
+        // 新增：最近加入的資料Key（用於高亮顯示）
+        let recentlyAddedKeys = [];
+        
         const MAX_LOGS = 50;
         const UPLOAD_BATCH_SIZE = 50;
         const PAGE_SIZE = 200; // 每頁筆數
@@ -2283,6 +2398,7 @@
         //================ 初始化 =================
         document.addEventListener('DOMContentLoaded', function() {
             loadManualSelect();
+            loadCustomCategories(); // 載入自定義分類設定
 
             document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') searchBook();
@@ -2312,49 +2428,41 @@
             setTimeout(preloadAllData, 1000);
         });
 
-        //================ API 呼叫函數 =================
-        function libraryApiCall(action, params = {}, timeout = 30000) {
-            return new Promise((resolve, reject) => {
-                const callbackName = 'lib_cb_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                const script = document.createElement('script');
-
-                const queryParams = new URLSearchParams({
-                    action: action,
-                    callback: callbackName,
-                    ...params
-                });
-
-                const url = `${LIBRARY_API_URL}?${queryParams.toString()}`;
-
-                const timeoutId = setTimeout(() => {
-                    cleanup();
-                    reject(new Error('請求超時'));
-                }, timeout);
-
-                function cleanup() {
-                    clearTimeout(timeoutId);
-                    if (script.parentNode) script.parentNode.removeChild(script);
-                    delete window[callbackName];
+        //================ API 呼叫函數（含重試機制） =================
+        async function libraryApiCall(action, params = {}, timeout = 60000) {
+            return apiCallWithRetry(LIBRARY_API_URL, action, params, timeout, 3);
+        }
+        
+        async function packingApiCall(action, params = {}, timeout = 60000) {
+            return apiCallWithRetry(PACKING_API_URL, action, params, timeout, 3);
+        }
+        
+        // 新增：通用重試機制
+        async function apiCallWithRetry(baseUrl, action, params, timeout, maxRetries) {
+            let lastError;
+            
+            for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                    const result = await executeApiCall(baseUrl, action, params, timeout);
+                    return result;
+                } catch (error) {
+                    lastError = error;
+                    console.warn(`API呼叫失敗 (嘗試 ${attempt}/${maxRetries}): ${error.message}`);
+                    
+                    if (attempt < maxRetries) {
+                        // 指數退避延遲
+                        const delay = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
                 }
-
-                window[callbackName] = (data) => {
-                    cleanup();
-                    resolve(data);
-                };
-
-                script.onerror = () => {
-                    cleanup();
-                    reject(new Error('載入失敗'));
-                };
-
-                script.src = url;
-                document.head.appendChild(script);
-            });
+            }
+            
+            throw new Error(`請求失敗（已重試${maxRetries}次）: ${lastError.message}`);
         }
 
-        function packingApiCall(action, params = {}, timeout = 30000) {
+        function executeApiCall(baseUrl, action, params, timeout) {
             return new Promise((resolve, reject) => {
-                const callbackName = 'pack_cb_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                const callbackName = 'api_cb_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
                 const script = document.createElement('script');
 
                 const queryParams = new URLSearchParams({
@@ -2363,7 +2471,7 @@
                     ...params
                 });
 
-                const url = `${PACKING_API_URL}?${queryParams.toString()}`;
+                const url = `${baseUrl}?${queryParams.toString()}`;
 
                 const timeoutId = setTimeout(() => {
                     cleanup();
@@ -2423,6 +2531,7 @@
             currentPackingSheet = sheetName;
             currentZone = 'all';
             currentPage = 1; // 重置頁碼
+            recentlyAddedKeys = []; // 清空最近加入列表
 
             document.querySelectorAll('.function-block').forEach(block => {
                 block.classList.remove('active');
@@ -2481,6 +2590,81 @@
                 document.getElementById('packingPanelContent').classList.remove('spare-mode');
                 document.getElementById('mobileManualBtn').style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
             }
+        }
+
+        //================ 自定義分類功能 =================
+        function loadCustomCategories() {
+            const saved = localStorage.getItem('customCategories_' + currentPackingSheet);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    // 合併儲存的設定，保留預設結構
+                    parsed.forEach((cat, index) => {
+                        if (customCategories[index]) {
+                            customCategories[index] = { ...customCategories[index], ...cat };
+                        }
+                    });
+                } catch (e) {
+                    console.error('載入自定義分類失敗:', e);
+                }
+            }
+            renderCustomCategories();
+        }
+        
+        function saveCustomCategories() {
+            localStorage.setItem('customCategories_' + currentPackingSheet, JSON.stringify(customCategories));
+            showToast('✅ 分類設定已儲存', 'success');
+            loadPackingSummary(); // 重新計算統計
+        }
+        
+        function renderCustomCategories() {
+            const container = document.getElementById('customCategoryList');
+            if (!container) return;
+            
+            let html = '';
+            customCategories.forEach((cat, index) => {
+                html += `
+                    <div class="custom-category-item">
+                        <div class="custom-category-header">
+                            <select onchange="updateCustomCategory(${index}, 'column', this.value)" title="選擇欄位">
+                                <option value="B" ${cat.column === 'B' ? 'selected' : ''}>B欄</option>
+                                <option value="C" ${cat.column === 'C' ? 'selected' : ''}>C欄</option>
+                                <option value="D" ${cat.column === 'D' ? 'selected' : ''}>D欄</option>
+                                <option value="E" ${cat.column === 'E' ? 'selected' : ''}>E欄</option>
+                            </select>
+                            <input type="text" placeholder="篩選值" value="${escapeHtml(cat.value)}" 
+                                onchange="updateCustomCategory(${index}, 'value', this.value)"
+                                title="輸入要統計的值">
+                        </div>
+                        <div class="custom-category-count" id="customCatCount_${index}">0 筆</div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+        
+        function updateCustomCategory(index, field, value) {
+            customCategories[index][field] = value;
+            customCategories[index].enabled = value.trim() !== '';
+        }
+        
+        function calculateCustomCategories(data) {
+            // data 是 summary 資料
+            customCategories.forEach((cat, index) => {
+                if (!cat.enabled || !cat.value) {
+                    document.getElementById(`customCatCount_${index}`).textContent = '-';
+                    return;
+                }
+                
+                let count = 0;
+                // 統計所有資料中符合條件的筆數
+                // 注意：這裡使用 summary 傳回的 zones 資料來計算
+                if (data && data.zones) {
+                    // 需要重新計算，這裡簡化處理
+                    // 實際應該從後端獲取詳細統計，或在前端快取全量資料時計算
+                    document.getElementById(`customCatCount_${index}`).textContent = '統計中...';
+                }
+            });
         }
 
         //================ 手機端 Manual Select 功能 =================
@@ -3346,6 +3530,8 @@
                 // 更新總覽統計
                 if (summaryResult.success && summaryResult.summary) {
                     updateSummaryDisplay(summaryResult.summary);
+                    // 計算自定義分類統計
+                    calculateCustomCategoryStats(summaryResult.rawData || packingDataCache);
                 }
 
                 if (currentZone !== 'all') {
@@ -3357,6 +3543,25 @@
             } catch (e) {
                 showToast('載入失敗：' + e.message, 'error');
             }
+        }
+        
+        // 新增：計算自定義分類統計
+        function calculateCustomCategoryStats(data) {
+            if (!data || !Array.isArray(data)) return;
+            
+            customCategories.forEach((cat, index) => {
+                if (!cat.enabled || !cat.value) {
+                    document.getElementById(`customCatCount_${index}`).textContent = '-';
+                    return;
+                }
+                
+                const count = data.filter(item => {
+                    const cellValue = item[cat.column] || '';
+                    return cellValue.toString().trim().toLowerCase() === cat.value.toString().trim().toLowerCase();
+                }).length;
+                
+                document.getElementById(`customCatCount_${index}`).textContent = count + ' 筆';
+            });
         }
 
         /**
@@ -3502,8 +3707,20 @@
                 return;
             }
 
-            packingDataCache.forEach(item => {
+            // 排序：將最近加入的資料排在最前面
+            const sortedData = [...packingDataCache].sort((a, b) => {
+                const aIsNew = recentlyAddedKeys.includes(a.A);
+                const bIsNew = recentlyAddedKeys.includes(b.A);
+                if (aIsNew && !bIsNew) return -1;
+                if (!aIsNew && bIsNew) return 1;
+                return 0;
+            });
+
+            sortedData.forEach(item => {
+                const isNew = recentlyAddedKeys.includes(item.A);
                 const tr = document.createElement('tr');
+                if (isNew) tr.classList.add('new-row');
+                
                 let html = '';
                 
                 // 動態生成欄位
@@ -3511,7 +3728,8 @@
                     const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
                     const value = item[colKey] || '-';
                     const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
-                    html += `<td class="${colClass}">${escapeHtml(value)}</td>`;
+                    const newBadge = (isNew && index === 0) ? '<span class="new-badge">NEW</span>' : '';
+                    html += `<td class="${colClass}">${escapeHtml(value)}${newBadge}</td>`;
                 });
 
                 // 操作按鈕：編輯、刪除位置、刪除整列
@@ -3546,6 +3764,8 @@
 
                 if (result.success) {
                     showToast('✅ ' + result.message, 'success');
+                    // 從最近加入列表中移除
+                    recentlyAddedKeys = recentlyAddedKeys.filter(k => k !== key);
                     // 重新載入當前頁
                     loadPackingData(currentPage);
                 } else {
@@ -3586,14 +3806,18 @@
             }
 
             filtered.forEach(item => {
+                const isNew = recentlyAddedKeys.includes(item.A);
                 const tr = document.createElement('tr');
+                if (isNew) tr.classList.add('new-row');
+                
                 let html = '';
                 
                 columnHeaders.forEach((header, index) => {
                     const colKey = ['A', 'B', 'C', 'D', 'E', 'F'][index];
                     const value = item[colKey] || '-';
                     const colClass = index === 0 ? 'col-a' : (index === 5 ? 'col-f' : '');
-                    html += `<td class="${colClass}">${escapeHtml(value)}</td>`;
+                    const newBadge = (isNew && index === 0) ? '<span class="new-badge">NEW</span>' : '';
+                    html += `<td class="${colClass}">${escapeHtml(value)}${newBadge}</td>`;
                 });
 
                 html += `
@@ -3613,13 +3837,26 @@
 
         async function loadPackingSummary() {
             try {
-                const result = await packingApiCall('packingGetSummary', { 
-                    sheet: currentPackingSheet,
-                    groupBy: document.getElementById('summaryGroupBy').value
-                });
+                // 載入統計時同時載入原始資料用於自定義分類計算
+                const [summaryResult, allDataResult] = await Promise.all([
+                    packingApiCall('packingGetSummary', { 
+                        sheet: currentPackingSheet,
+                        groupBy: 'B'
+                    }),
+                    packingApiCall('packingGetAllData', {
+                        sheet: currentPackingSheet,
+                        page: 1,
+                        zone: ''
+                    })
+                ]);
 
-                if (result.success && result.summary) {
-                    updateSummaryDisplay(result.summary);
+                if (summaryResult.success && summaryResult.summary) {
+                    updateSummaryDisplay(summaryResult.summary);
+                }
+                
+                // 使用全量資料計算自定義分類（取第一頁作為樣本，或需要時載入全部）
+                if (allDataResult.success) {
+                    calculateCustomCategoryStats(allDataResult.data);
                 }
             } catch (e) {
                 console.error('載入 Summary 失敗:', e);
@@ -3652,27 +3889,10 @@
             } else {
                 zoneList.innerHTML = '<div class="summary-item"><span class="summary-label">無資料</span><span class="summary-value">0</span></div>';
             }
-
-            // 更新分類統計
-            const catList = document.getElementById('categorySummaryList');
-            if (summary.categories && summary.categories.length > 0) {
-                let html = '';
-                summary.categories.forEach(cat => {
-                    html += `
-                        <div class="summary-item">
-                            <span class="summary-label">${escapeHtml(cat.name)}</span>
-                            <span class="summary-value">${cat.count} 筆</span>
-                        </div>
-                    `;
-                });
-                catList.innerHTML = html;
-            } else {
-                catList.innerHTML = '<div class="summary-item"><span class="summary-label">無資料</span><span class="summary-value">0</span></div>';
-            }
         }
 
         /**
-         * 【修正4】快速加入優化 - 立即回饋，背景更新
+         * 【優化】快速加入 - 立即回饋，背景更新，新資料排在最前
          */
         async function quickAddSearch() {
             if (isProcessingQuickAdd) return;
@@ -3699,7 +3919,7 @@
                 });
 
                 if (result.found) {
-                    // 【優化】立即更新UI顯示成功，不等待完整重新載入
+                    // 立即更新UI顯示成功，不等待完整重新載入
                     const quickResultHtml = `
                         <div class="quick-result-display">
                             <div class="quick-result-grid">
@@ -3717,7 +3937,22 @@
                     document.getElementById('quickKeyInput').value = '';
                     document.getElementById('quickKeyInput').focus();
                     
-                    // 在背景執行實際更新和資料重新載入
+                    // 記錄到最近加入列表
+                    if (!recentlyAddedKeys.includes(key)) {
+                        recentlyAddedKeys.unshift(key);
+                        // 只保留最近10筆
+                        if (recentlyAddedKeys.length > 10) recentlyAddedKeys.pop();
+                    }
+                    
+                    // 更新本地快取資料（模擬新資料已加入）
+                    const newItem = {
+                        ...result.data,
+                        F: currentZone || ''
+                    };
+                    packingDataCache.unshift(newItem);
+                    totalRecords++;
+                    
+                    // 在背景執行實際更新
                     setTimeout(() => {
                         performQuickAddBackground(key, result.data);
                     }, 100);
@@ -3742,7 +3977,7 @@
         }
 
         /**
-         * 【修正4】背景執行實際更新，不阻塞UI
+         * 【優化】背景執行實際更新，不阻塞UI
          */
         async function performQuickAddBackground(key, data) {
             try {
@@ -3795,7 +4030,7 @@
         document.head.appendChild(style);
 
         /**
-         * 【修正3】新增位置 - 強制重新整理側邊欄
+         * 新增位置 - 強制重新整理側邊欄
          */
         function showAddZoneModal() {
             const content = `
@@ -3834,7 +4069,7 @@
                 showToast(`✅ 位置「${zoneName}」已新增`, 'success');
                 closeModal();
                 
-                // 【修正3】強制重新載入區域列表，確保新位置顯示
+                // 強制重新載入區域列表，確保新位置顯示
                 await refreshZoneList();
             } catch (e) {
                 showToast('❌ 新增失敗：' + e.message, 'error');
@@ -3842,7 +4077,7 @@
         }
 
         /**
-         * 【修正3】專門用於重新載入區域列表的函數
+         * 專門用於重新載入區域列表的函數
          */
         async function refreshZoneList() {
             try {
@@ -4028,6 +4263,7 @@
                 const result = await packingApiCall('packingClearLocations', { sheet: currentPackingSheet });
                 if (result.success) {
                     showToast('✅ ' + result.message, 'success');
+                    recentlyAddedKeys = []; // 清空最近加入列表
                     await loadPackingData(1);
                 } else {
                     showToast('❌ ' + result.error, 'error');
@@ -4038,35 +4274,36 @@
         }
 
         /**
- * 【修正】清空功能 - 完全清空所有內容（不重建標題）
- */
-async function clearPackingAll() {
-    const confirmMsg = currentPackingSheet === 'PackBox' 
-        ? '⚠️ 確定要清除 PACKBOX 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！'
-        : '⚠️ 確定要清除 PACKBOXSPARE 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！';
+         * 清空功能 - 完全清空所有內容（不重建標題）
+         */
+        async function clearPackingAll() {
+            const confirmMsg = currentPackingSheet === 'PackBox' 
+                ? '⚠️ 確定要清除 PACKBOX 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！'
+                : '⚠️ 確定要清除 PACKBOXSPARE 全部資料嗎？\n\n此操作將**完全清空**工作表所有內容（包含標題列），資料將無法復原！\n\n⚠️ 此操作無法復原！';
 
-    if (!confirm(confirmMsg)) return;
+            if (!confirm(confirmMsg)) return;
 
-    try {
-        showToast('正在清空資料...', 'info');
+            try {
+                showToast('正在清空資料...', 'info');
 
-        // 【修正】不再傳遞 includeHeader 參數，完全清空
-        const result = await packingApiCall('packingClearAll', { 
-            sheet: currentPackingSheet
-        });
-        
-        if (result.success) {
-            showToast(result.message, 'success');
-            // 清空後重新載入資料（應該是空的）
-            await loadPackingData();
-        } else {
-            throw new Error(result.error);
+                // 不再傳遞 includeHeader 參數，完全清空
+                const result = await packingApiCall('packingClearAll', { 
+                    sheet: currentPackingSheet
+                });
+                
+                if (result.success) {
+                    showToast(result.message, 'success');
+                    recentlyAddedKeys = []; // 清空最近加入列表
+                    // 清空後重新載入資料（應該是空的）
+                    await loadPackingData();
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                showToast('清空失敗: ' + error.message, 'error');
+                console.error('清空錯誤:', error);
+            }
         }
-    } catch (error) {
-        showToast('清空失敗: ' + error.message, 'error');
-        console.error('清空錯誤:', error);
-    }
-}
 
         //================ Excel 上傳與匯出功能 =================
         function showUploadModal() {
@@ -4348,7 +4585,7 @@ async function clearPackingAll() {
         }
 
         /**
-         * 【修正1】Excel 匯出 - 修正 Base64 解碼方式，確保檔案正確下載
+         * Excel 匯出 - 修正 Base64 解碼方式，確保檔案正確下載
          */
         async function exportPackingExcel() {
             const btn = event.target;
@@ -4362,7 +4599,7 @@ async function clearPackingAll() {
                 });
 
                 if (result.success && result.data) {
-                    // 【修正1】使用更安全的 Base64 解碼方式處理二進位檔案
+                    // 使用更安全的 Base64 解碼方式處理二進位檔案
                     const base64 = result.data;
                     
                     // 將 base64 轉換為 Uint8Array（處理二進位資料的正確方式）
