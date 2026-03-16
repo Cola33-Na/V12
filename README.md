@@ -1,2 +1,2 @@
-# V12
-GAS V12
+# gas-proxy
+Google Apps Script Proxy
