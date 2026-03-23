@@ -2205,7 +2205,7 @@
                 gap: 10px;
             }
 
-            /* 【修改】手機端統計表格保持電腦端樣式，確保橫向滾動 */
+            /* 【修改】手機端統計表格優化 - 保持電腦端表格樣式，橫向滾動 */
             .stats-table-container {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
@@ -2217,39 +2217,42 @@
             }
 
             .stats-table {
-                min-width: 800px; /* 確保最小寬度觸發滾動 */
-                font-size: 13px;
-                display: table !important; /* 強制表格布局 */
+                min-width: 800px; /* 確保最小寬度觸發橫向滾動 */
+                font-size: 12px;
+                /* 【關鍵修改】強制保持表格布局，防止變成卡片式 */
+                display: table;
+                width: 100%;
                 table-layout: auto;
             }
 
+            /* 【關鍵修改】確保表格結構在手機端保持不變 */
             .stats-table thead {
-                display: table-header-group !important;
+                display: table-header-group;
             }
 
             .stats-table tbody {
-                display: table-row-group !important;
+                display: table-row-group;
             }
 
             .stats-table tr {
-                display: table-row !important;
+                display: table-row;
             }
 
             .stats-table th, .stats-table td {
-                padding: 10px 8px;
-                font-size: 13px;
-                display: table-cell !important; /* 強制單元格布局 */
-                white-space: nowrap; /* 防止換行 */
-                vertical-align: middle;
+                padding: 8px 6px;
+                font-size: 12px;
+                /* 【關鍵修改】強制保持單元格布局 */
+                display: table-cell;
+                white-space: nowrap;
             }
 
             .stats-table thead th.orange-header {
-                font-size: 12px;
-                padding: 10px 8px;
+                font-size: 11px;
+                padding: 8px 6px;
             }
 
             .stats-table-header-note {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             /* 手機端快速輸入區域優化 */
@@ -2367,7 +2370,7 @@
             }
 
             .stats-table thead th.orange-header {
-                font-size: 11px;
+                font-size: 10px;
             }
 
             /* 【新增】手機端統計網格調整 */
@@ -2387,22 +2390,19 @@
 
             /* 【修改】更小屏幕的統計表格保持電腦端樣式 */
             .stats-table {
-                min-width: 700px;
-                font-size: 12px;
-                display: table !important;
+                min-width: 700px; /* 確保最小寬度觸發滾動 */
+                font-size: 11px;
             }
 
             .stats-table th, .stats-table td {
-                padding: 8px 6px;
-                font-size: 12px;
-                display: table-cell !important;
-                white-space: nowrap;
+                padding: 6px 4px;
+                font-size: 11px;
             }
 
             .stats-table .zone-name-cell {
-                max-width: none; /* 移除限制，保持與電腦端一致 */
-                overflow: visible;
-                text-overflow: clip;
+                max-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             /* 調整標題padding */
@@ -3242,6 +3242,75 @@
                 mobileManualBtn.style.display = 'flex';
             }
         });
+
+        //================ API 呼叫函數（含重試機制） =================
+        async function libraryApiCall(action, params = {}, timeout = 60000) {
+            return apiCallWithRetry(LIBRARY_API_URL, action, params, timeout, 3);
+        }
+        
+        async function packingApiCall(action, params = {}, timeout = 60000) {
+            return apiCallWithRetry(PACKING_API_URL, action, params, timeout, 3);
+        }
+        
+        async function apiCallWithRetry(baseUrl, action, params, timeout, maxRetries) {
+            let lastError;
+            
+            for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                    const result = await executeApiCall(baseUrl, action, params, timeout);
+                    return result;
+                } catch (error) {
+                    lastError = error;
+                    console.warn(`API呼叫失敗 (嘗試 ${attempt}/${maxRetries}): ${error.message}`);
+                    
+                    if (attempt < maxRetries) {
+                        const delay = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+                }
+            }
+            
+            throw new Error(`請求失敗（已重試${maxRetries}次）: ${lastError.message}`);
+        }
+
+        function executeApiCall(baseUrl, action, params, timeout) {
+            return new Promise((resolve, reject) => {
+                const callbackName = 'api_cb_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                const script = document.createElement('script');
+
+                const queryParams = new URLSearchParams({
+                    action: action,
+                    callback: callbackName,
+                    ...params
+                });
+
+                const url = `${baseUrl}?${queryParams.toString()}`;
+
+                const timeoutId = setTimeout(() => {
+                    cleanup();
+                    reject(new Error('請求超時'));
+                }, timeout);
+
+                function cleanup() {
+                    clearTimeout(timeoutId);
+                    if (script.parentNode) script.parentNode.removeChild(script);
+                    delete window[callbackName];
+                }
+
+                window[callbackName] = (data) => {
+                    cleanup();
+                    resolve(data);
+                };
+
+                script.onerror = () => {
+                    cleanup();
+                    reject(new Error('載入失敗'));
+                };
+
+                script.src = url;
+                document.head.appendChild(script);
+            });
+        }
 
         //================ 【新增】欄位寬度調整功能 =================
         
